@@ -7,7 +7,6 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <div className="blur"></div>
         <Navbar />
 
         <Routes>
