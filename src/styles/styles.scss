@@ -3,20 +3,21 @@ $secondary-color: #8B2030;
 $darkest-color: #1A1A1A;
 $dark-color: #333333;
 $light-color: #eeeeee;
-$highlight-color: #EDA909;
+$highlight-color: #4788d3;
 
-.app {
+body {
     margin: 0;
     padding: 0;
-    background-color: $dark-color;
     max-width: 100vw;
     height: 100vh;
-    background: $dark-color;
+    background-color: $dark-color;
+    background-image: linear-gradient(0deg, $dark-color, $darkest-color);
     background-size: cover;
-    position: static;
+    background-attachment: fixed;
     font-family: 'Jura', sans-serif;
     text-align: center;
 }
+
 
 //Navbar 
 
@@ -58,11 +59,27 @@ $highlight-color: #EDA909;
     text-decoration: underline;
     letter-spacing: .2em;
     text-align: center;
-    color: $dark-color;
+    color: $darkest-color;
 }
 
 .brand {
     color: $light-color;
 }
 
+.active {
+    border-bottom: 2px solid $light-color;
+}
+
 //Main//
+
+.carousel {
+    max-width: 500px;
+    min-width: 200px;
+    height: 400px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.jumbotron {
+    background: $primary-color;
+}

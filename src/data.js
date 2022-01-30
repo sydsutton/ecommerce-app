@@ -1,7 +1,7 @@
 
 export const categoriesData = [
   {
-    title: 'Hoodie',
+    title: 'Hoodies',
     routeName: 'hoodie',
     imageUrl:
       'https://images.asos-media.com/products/jack-jones-essentials-hoodie-with-chest-logo-in-black/202066439-1-black?$n_640w$&wid=634&fit=constrain',
@@ -25,7 +25,7 @@ export const categoriesData = [
       'https://images.asos-media.com/products/asos-design-wedding-linen-super-skinny-suit-trousers-with-prince-of-wales-check-in-stone/22358195-1-stone?$n_640w$&wid=634&fit=constrain',
   },
   {
-    title: 'T-Shirt',
+    title: 'T-Shirts',
     routeName: 'tshirt',
     imageUrl:
       'https://images.asos-media.com/products/levis-2-pack-crewneck-batwing-logo-t-shirt-in-white-grey-marl/20420194-1-multi?$n_640w$&wid=634&fit=constrain',
