@@ -12,7 +12,7 @@ import {categoriesData} from "../data"
 const MainComponent = () => {
     return (
         <div>
-            <div className="jumbotron">
+            <div>
                 <Carousel fade="true" controls={false} indicators={false} interval="3000" pause="hover">
                     <Carousel.Item className="carousel">
                         <img

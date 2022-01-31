@@ -1,66 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Viga&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap");
 body {
   margin: 0;
   padding: 0;
   max-width: 100vw;
   height: 100vh;
-  background-color: #333333;
+  background-color: #975454;
   background-image: -webkit-gradient(linear, left bottom, left top, from(#333333), to(#1A1A1A));
   background-image: linear-gradient(0deg, #333333, #1A1A1A);
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'Dongle', sans-serif;
+  font-family: 'Manjari', sans-serif;
   text-align: center;
 }
 
 h1, h2, h3 {
-  font-family: 'Reenie Beanie', cursive;
-}
-
-.nav-item {
-  font-weight: 700;
-}
-
-.drawer {
-  height: 100vh;
-  width: 50vw;
-  background: #64111d;
-  color: #eeeeee;
+  font-family: 'M PLUS 1 Code', sans-serif;
 }
 
 .navbar {
-  background: #64111d;
-}
-
-.drawer-item:hover {
-  background: #975454;
-  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-  color: #1A1A1A;
-}
-
-.button-item {
-  color: #eeeeee;
-  font-family: 'Jura', sans-serif;
-  font-weight: 500;
-  height: 50px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: .8em;
-}
-
-.button-item:hover {
-  color: #1A1A1A;
-}
-
-.subtitle {
-  text-decoration: underline;
-  letter-spacing: .2em;
-  text-align: center;
-  color: #1A1A1A;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#613237), to(#613237));
+  background-image: linear-gradient(#613237, #613237);
+  max-width: 100vw;
 }
 
 .brand {
@@ -69,7 +29,49 @@ h1, h2, h3 {
 
 .active {
   border-bottom: 2px solid #eeeeee;
-  font-weight: bold;
+}
+
+.legend {
+  margin: 1rem 0 -1rem 2rem;
+  z-index: 10;
+  color: #613237;
+  background: #1A1A1A;
+  padding: .2em;
+  text-align: center;
+  width: 35%;
+  border-radius: 10px;
+}
+
+.list-border {
+  border: 1px solid #1A1A1A;
+  border-radius: 15px;
+}
+
+.nav-link {
+  color: #eeeeee;
+  text-align: center;
+  font-family: 'Manjari', sans-serif;
+  text-transform: uppercase;
+  min-width: 8rem;
+  font-size: .8em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.nav-link:hover {
+  background: #975454;
+}
+
+#off-canvas {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#613237), to(#613237));
+  background-image: linear-gradient(#613237, #613237);
 }
 
 .carousel {
