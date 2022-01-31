@@ -69,6 +69,7 @@ h1, h2, h3 {
 
 .active {
   border-bottom: 2px solid #eeeeee;
+  font-weight: bold;
 }
 
 .carousel {
