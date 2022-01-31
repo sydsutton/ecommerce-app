@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom"
 import {
+    Dropdown,
+    Nav,
+    NavDropdown
+} from "react-bootstrap"
+import {
     Drawer, 
     Box,
     List,
@@ -9,8 +14,17 @@ import {
     Button
 } from "@mui/material"
 
-import {GiHoodie, GiArmoredPants, GiMonclerJacket} from "react-icons/gi"
-import {FaBlackTie, FaTshirt} from "react-icons/fa"
+import {
+    GiHoodie, 
+    GiArmoredPants, 
+    GiMonclerJacket
+} from "react-icons/gi"
+
+import {
+    FaBlackTie, 
+    FaTshirt,
+    FaSignInAlt
+} from "react-icons/fa"
 
 import {
     MenuOpen,
@@ -30,26 +44,40 @@ const NavbarComponent = () => {
     const buttonClass = "w-75 mx-auto d-flex justify-content-evenly button-item text-light"
 
     return (
-        <nav className="navbar navbar-dark px-3" >
+        <nav className="navbar navbar-dark px-3 shadow" >
             <div></div>
-            <Link className="text-decoration-none" to="/"><h2 className="brand">dVine</h2></Link>
+            <Link className="text-decoration-none" to="/">
+                <h5 className="d-inline brand">Let us help you dress your&nbsp;&nbsp;</h5><h2 className="brand d-inline">BEST</h2>
+            </Link>
             <div className="d-none d-md-block w-50">
                 <ul className="navbar-nav d-flex flex-row w-100 justify-content-evenly">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/">Home</Link>
+                        <Link className="nav-link" to="/">home</Link>
                     </li>
-                    <li className="nav-item dropdown">
-                        <a id="navbar-dropdown" aria-expanded="true" className="nav-link dropdown-toggle" to="/products">Products</a>
-                        <div arialabelledby="navbar-dropdown" className="dropdown-menu">
-                            <Link className="dropdown-item" to="">Hoodies</Link>
-                            <Link className="dropdown-item" to="">Jeans</Link>
-                            <Link className="dropdown-item" to="">Jackets</Link>
-                            <Link className="dropdown-item" to="">Pants</Link>
-                            <Link className="dropdown-item" to="">Shirts</Link>
-                        </div>
+                    <NavDropdown variant="transparent" title="Products" menuVariant='dark'>
+                        <Nav>
+                            <NavDropdown.Item>
+                                <Link className="dropdown-item" to="">hoodies</Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <Link className="dropdown-item" to="">jeans</Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <Link className="dropdown-item" to="">jackets</Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <Link className="dropdown-item" to="">pants</Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <Link className="dropdown-item" to="">shirts</Link>
+                            </NavDropdown.Item>
+                        </Nav>
+                    </NavDropdown>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/contact">contact</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/contact">Contact</Link>
+                        <Link className="nav-link" to="/signin">sign in</Link>
                     </li>
                 </ul>
             </div>
@@ -70,7 +98,6 @@ const NavbarComponent = () => {
                     role="presentation" 
                     onClick={() => toggleDrawer()}
                 >
-                    {/* <Button onClick={() => toggleDrawer()}><Close color="action" /></Button> */}
                     <List>
                         <ListItem className="p-0">
                             <Link to ="/" className={linkClass}>
@@ -80,7 +107,7 @@ const NavbarComponent = () => {
                             </Link>
                         </ListItem>
                         <hr />
-                        <h5 className="subtitle small">The Shop</h5>
+                        <h5 className="subtitle">The Shop</h5>
                         <ListItem className="p-0">
                             <Link to ="/products" className={linkClass}>
                                 <div className={buttonClass}>
@@ -121,6 +148,13 @@ const NavbarComponent = () => {
                             <Link to ="/contact" className={linkClass}>
                                 <div className={buttonClass}>
                                     <AlternateEmail fontSize="small"/>contact
+                                </div>
+                            </Link>
+                        </ListItem>
+                        <ListItem className="p-0">
+                            <Link to ="/sigin" className={linkClass}>
+                                <div className={buttonClass}>
+                                    <FaSignInAlt fontSize="small"/>sign in
                                 </div>
                             </Link>
                         </ListItem>
