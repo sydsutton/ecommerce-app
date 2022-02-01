@@ -39,9 +39,9 @@ h1, h2, h3 {
 .legend {
   margin: 1rem 0 -.7rem 2rem;
   z-index: 10;
-  color: #572e32;
+  color: #47b7d3;
   background: #1A1A1A;
-  padding: .2em .5em;
+  padding: .3em .5em;
   text-align: center;
   width: 35%;
   border-radius: 10px;
@@ -128,5 +128,11 @@ h1, h2, h3 {
   height: 300px;
   margin: 0 auto;
   background-position-y: center;
+}
+
+.category-title {
+  color: #eeeeee;
+  margin-top: 4rem;
+  text-transform: capitalize;
 }
 /*# sourceMappingURL=styles.css.map */

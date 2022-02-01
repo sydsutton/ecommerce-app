@@ -31,8 +31,26 @@ import {
     AlternateEmail
 } from '@mui/icons-material';
 
+import {categoriesData} from "../data"
+
 const NavbarComponent = () => {
     const location = useLocation()
+
+    const categories = categoriesData.map(category => {
+        return (
+            <NavDropdown.Item key={category} href={`/products/${category.routeName}`}>{category.title}</NavDropdown.Item>
+        )
+    })
+
+    const sideBarCategories = categoriesData.map(category => {
+        return (
+            <ListItem key={category}>
+                <Nav.Link className="w-100 text-dark nav-link" href={`/products/${category.routeName}`}>
+                    {location.pathname === `/products/${category.routeName}` ? <FaBlackTie size={18} /> : null} {category.title}
+                </Nav.Link>
+            </ListItem>
+        )
+    })
 
     return (
 
@@ -47,15 +65,7 @@ const NavbarComponent = () => {
                             </Nav.Link>
                         </Link>
                         <NavDropdown title="Products">
-                            <NavDropdown.Item href="/products">hoodies</NavDropdown.Item>
-                            <NavDropdown.Divider/>
-                            <NavDropdown.Item href="/products">jeans</NavDropdown.Item>
-                            <NavDropdown.Divider/>
-                            <NavDropdown.Item href="/products">jackets</NavDropdown.Item>
-                            <NavDropdown.Divider/>
-                            <NavDropdown.Item href="/products">suits</NavDropdown.Item>
-                            <NavDropdown.Divider/>
-                            <NavDropdown.Item href="/products">t-shirts</NavDropdown.Item>
+                            {categories}
                         </NavDropdown>
                         <Link to="/contact" className="text-decoration-none">
                             <Nav.Link href="/contact" className="nav-link">
@@ -85,42 +95,18 @@ const NavbarComponent = () => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav activeKey={location.pathname} className="justify-content-end flex-grow-1 pe-3">
+                            <Nav.Link href="/signin" className="text-dark nav-link mb-2">
+                                <FaSignInAlt size={15} />{location.pathname === "/signin" ? "  Sign In" : null}
+                            </Nav.Link>
                             <Nav.Link href="/" className="text-dark nav-link">
                                 <Home fontSize="small" />{location.pathname === "/" ? "  Home" : null}
                             </Nav.Link>
                             <h6 className="legend">Products</h6>
                             <List className="list-border">
-                                <ListItem>
-                                    <Nav.Link className="w-100 text-dark nav-link" href="/products">
-                                        {location.pathname === "/products" ? <GiHoodie /> : null} Hoodies
-                                    </Nav.Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Nav.Link className="w-100 text-dark nav-link" href="/products">
-                                    {location.pathname === "/products" ? <GiArmoredPants /> : null} HoodiesJeans
-                                    </Nav.Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Nav.Link className="w-100 text-dark nav-link" href="/products">
-                                    {location.pathname === "/products" ? <GiMonclerJacket/> : null} HoodiesJackets
-                                    </Nav.Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Nav.Link className="w-100 text-dark nav-link" href="/products">
-                                    {location.pathname === "/products" ? <FaBlackTie /> : null} Suits
-                                    </Nav.Link>
-                                </ListItem>
-                                <ListItem>
-                                    <Nav.Link className="w-100 text-dark nav-link" href="/products">
-                                    {location.pathname === "/products" ? <FaTshirt /> : null} HoodiesT-shirts
-                                    </Nav.Link>
-                                </ListItem>
+                                {sideBarCategories}
                             </List>
-                            <Nav.Link href="/contact" className="text-dark nav-link">
+                            <Nav.Link href="/contact" className="text-dark nav-link mt-2">
                                 <AlternateEmail fontSize="small" />{location.pathname === "/contact" ? "  Contact" : null}
-                            </Nav.Link>
-                            <Nav.Link href="/signin" className="text-dark nav-link">
-                                <FaSignInAlt size={15} />{location.pathname === "/signin" ? "  Sign In" : null}
                             </Nav.Link>
                         </Nav>
                     </Offcanvas.Body>

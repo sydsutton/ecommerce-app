@@ -48,9 +48,9 @@ h1, h2, h3 {
 .legend {
     margin: 1rem 0 -.7rem 2rem;
     z-index: 10;
-    color: $third-color;
+    color: $highlight-color;
     background: $darkest-color;
-    padding: .2em .5em;
+    padding: .3em .5em;
     text-align: center;
     width: 35%;
     border-radius: 10px;
@@ -132,4 +132,12 @@ h1, h2, h3 {
     height: 300px;
     margin: 0 auto;
     background-position-y: center;
+  }
+
+  //Categories
+
+  .category-title {
+      color: $light-color;
+      margin-top: 4rem;
+      text-transform: capitalize;
   }

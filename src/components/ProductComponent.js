@@ -1,4 +1,5 @@
 import React from 'react';
+import {useParams} from "react-router-dom"
 import {Carousel} from "react-bootstrap"
 
 import one from "../images/carousel/1.jpg"
@@ -6,9 +7,13 @@ import two from "../images/carousel/2.jpg"
 import three from "../images/carousel/3.jpg"
 import four from "../images/carousel/4.jpg"
 
-import {categoriesData} from "../data"
+import {productsData} from "../data"
 
-const ProductsComponent = () => {
+const ProductComponent = (props) => {
+
+    const {category} = useParams()
+    const products = productsData.filter(product => product.category === category) 
+
     return (
         <div>
             <div className="jumbotron">
@@ -43,8 +48,15 @@ const ProductsComponent = () => {
                     </Carousel.Item> 
                 </Carousel> 
             </div>
+
+            <h2 className="category-title">{category[category.length - 1] === "s" ? category : category + "s"}</h2>
+            <h1>{products.map(product => {
+                return (
+                    <h3>{product.name}</h3>
+                )
+            })}</h1>
         </div>
     );
 };
 
-export default ProductsComponent;
+export default ProductComponent;
