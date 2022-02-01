@@ -141,3 +141,30 @@ h1, h2, h3 {
       margin-top: 4rem;
       text-transform: capitalize;
   }
+
+  .product-container {
+      max-width: 80%;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .product-link {
+      width: calc(33% of 80%);
+      font-size: .7em;
+      background: $dark-color;
+      text-align: left;
+      padding: .5em;
+      height: 450px;
+  }
+
+  .product-image {
+      height: 300px;
+      width: 250px;
+      object-fit: cover;
+      border: 1px solid $highlight-color;
+  }
+
+  .product-name {
+      max-width: 200px;
+  }

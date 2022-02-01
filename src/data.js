@@ -4009,8 +4009,8 @@ export const productsData = [
     category: 'tshirt',
     imageUrl:
       'https://images.asos-media.com/products/vans-classic-logo-raglan-t-shirt-in-white/11642006-1-white?$n_320w$&wid=317&fit=constrain',
-    originPrice: 17,
-    discount: 35,
+    originPrice: 35,
+    discount: 17,
     brand: 'Vans',
     isFreeship: false,
     ratingValue: 4.5,
@@ -4041,8 +4041,8 @@ export const productsData = [
     category: 'tshirt',
     imageUrl:
       'https://images.asos-media.com/products/vans-classic-easy-box-t-shirt-in-yellow/24127792-1-yellow?$n_320w$&wid=317&fit=constrain',
-    originPrice: 17,
-    discount: 35,
+    originPrice: 35,
+    discount: 17,
     brand: 'Vans',
     isFreeship: false,
     ratingValue: 4.5,

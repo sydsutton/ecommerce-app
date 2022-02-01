@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link, useParams} from "react-router-dom"
 import {Carousel} from "react-bootstrap"
+import {Rating, IconButton} from "@mui/material"
 
 import one from "../images/carousel/1.jpg"
 import two from "../images/carousel/2.jpg"
@@ -8,8 +9,11 @@ import three from "../images/carousel/3.jpg"
 import four from "../images/carousel/4.jpg"
 
 import {productsData} from "../data"
+import { BsFillCartPlusFill } from 'react-icons/bs';
 
-const CategoryComponent = (props) => {
+const CategoryComponent = () => {
+
+    const [selectedHoverIndex, setSelectedHoverIndex] = useState(-1)
 
     const {category} = useParams()
     const products = productsData.filter(product => product.category === category) 
@@ -17,7 +21,7 @@ const CategoryComponent = (props) => {
     return (
         <div>
             <div className="jumbotron">
-                <Carousel fade="true" controls={false} indicators={false} interval="3000" pause="hover" >
+                <Carousel controls={false} indicators={false} interval="3000" pause="hover" >
                     <Carousel.Item className="carousel">
                         <img
                             className="d-block carousel-image"
@@ -52,13 +56,49 @@ const CategoryComponent = (props) => {
 {/* Did this to make the category plural for the title */}
 
             <h2 className="category-title">{category[category.length - 1] === "s" ? category : category + "s"}</h2>
-            <h1>{products.map(product => {
-                return (
-                    <Link to={`/products/${category}/${product.productCode}`}>
-                        <h3>{product.name}</h3>
-                    </Link>
-                )
-            })}</h1>
+            <div className="d-flex flex-row flex-wrap product-container">
+                {products.map((product, index) => {
+                    const salePrice = (product.originPrice - product.discount)
+
+                    return (
+                        <Link 
+                            to={`/products/${category}/${product.productCode}`} 
+                            className="text-decoration-none text-light m-2 shadow"
+                        >
+                            <div className="product-link" key={index}>
+                                <img 
+                                    src={selectedHoverIndex === index ? product.thumbnailUrls[1] : product.imageUrl} 
+                                    alt={product.name} 
+                                    onMouseEnter={() => setSelectedHoverIndex(index)} 
+                                    onMouseLeave={() => setSelectedHoverIndex(-1)} 
+                                    className="product-image" 
+                                />
+                                <p className="mt-2 product-name">{product.name}</p>
+                                <Rating 
+                                    value={product.ratingValue} 
+                                    size="small" 
+                                    name="Rating" 
+                                    precision={0.5} 
+                                    readOnly 
+                                />
+                                {product.discount ? 
+                                    <div className="w-25 mx-auto d-flex justify-content-evenly align-items-center">
+                                        <h6 className="text-danger d-inline "><del>${product.originPrice}</del></h6>
+                                        <h5 className="text-light d-inline">${salePrice.toFixed(2)}</h5>
+                                    </div>
+                                : 
+                                    <p>${product.originPrice}</p>
+                                }
+                                <div className="d-flex justify-content-end">
+                                    <IconButton color="primary" size="small">
+                                        <BsFillCartPlusFill/>
+                                    </IconButton>
+                                </div>
+                            </div>
+                        </Link>
+                    )
+                })}
+            </div>
         </div>
     );
 };
