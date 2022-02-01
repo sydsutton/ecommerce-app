@@ -1,8 +1,7 @@
 import React, {useState } from 'react';
 import {Link} from "react-router-dom"
-import { useNavigate, useLocation } from 'react-router';
+import { useLocation } from 'react-router';
 import {
-    Dropdown,
     Nav,
     Navbar,
     NavDropdown,
@@ -10,12 +9,8 @@ import {
     Offcanvas
 } from "react-bootstrap"
 import {
-    Drawer, 
-    Box,
     List,
     ListItem,
-    ListItemText, 
-    Button
 } from "@mui/material"
 
 import {
@@ -33,7 +28,6 @@ import {
 import {
     MenuOpen,
     Home,
-    Close,
     AlternateEmail
 } from '@mui/icons-material';
 
@@ -91,32 +85,42 @@ const NavbarComponent = () => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav activeKey={location.pathname} className="justify-content-end flex-grow-1 pe-3">
-                            <Nav.Link href="/" className="text-light nav-link d-flex justify-content-evenly">
+                            <Nav.Link href="/" className="text-light nav-link">
                                 <Home fontSize="small" />{location.pathname === "/" ? "  Home" : null}
                             </Nav.Link>
                             <h6 className="legend">Products</h6>
                             <List className="list-border">
                                 <ListItem>
-                                    <Nav.Link className="w-100 text-light nav-link" href="/products">Hoodies</Nav.Link>
+                                    <Nav.Link className="w-100 text-light nav-link" href="/products">
+                                        {location.pathname === "/products" ? <GiHoodie /> : null} Hoodies
+                                    </Nav.Link>
                                 </ListItem>
                                 <ListItem>
-                                    <Nav.Link className="w-100 text-light nav-link" href="/products">Jeans</Nav.Link>
+                                    <Nav.Link className="w-100 text-light nav-link" href="/products">
+                                    {location.pathname === "/products" ? <GiArmoredPants /> : null} HoodiesJeans
+                                    </Nav.Link>
                                 </ListItem>
                                 <ListItem>
-                                    <Nav.Link className="w-100 text-light nav-link" href="/products">Jackets</Nav.Link>
+                                    <Nav.Link className="w-100 text-light nav-link" href="/products">
+                                    {location.pathname === "/products" ? <GiMonclerJacket/> : null} HoodiesJackets
+                                    </Nav.Link>
                                 </ListItem>
                                 <ListItem>
-                                    <Nav.Link className="w-100 text-light nav-link" href="/products">Suits</Nav.Link>
+                                    <Nav.Link className="w-100 text-light nav-link" href="/products">
+                                    {location.pathname === "/products" ? <FaBlackTie /> : null} Suits
+                                    </Nav.Link>
                                 </ListItem>
                                 <ListItem>
-                                    <Nav.Link className="w-100 text-light nav-link" href="/products">T-shirts</Nav.Link>
+                                    <Nav.Link className="w-100 text-light nav-link" href="/products">
+                                    {location.pathname === "/products" ? <FaTshirt /> : null} HoodiesT-shirts
+                                    </Nav.Link>
                                 </ListItem>
                             </List>
-                            <Nav.Link href="/contact" className="text-light nav-link d-flex justify-content-evenly">
+                            <Nav.Link href="/contact" className="text-light nav-link">
                                 <AlternateEmail fontSize="small" />{location.pathname === "/contact" ? "  Contact" : null}
                             </Nav.Link>
-                            <Nav.Link href="/signin" className="text-light nav-link d-flex justify-content-evenly">
-                                <FaSignInAlt size={15} />{location.pathname === "/signin" ? "Sign In" : null}
+                            <Nav.Link href="/signin" className="text-light nav-link">
+                                <FaSignInAlt size={15} />{location.pathname === "/signin" ? "  Sign In" : null}
                             </Nav.Link>
                         </Nav>
                     </Offcanvas.Body>

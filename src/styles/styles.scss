@@ -38,18 +38,19 @@ h1, h2, h3 {
 }
 
 .active {
-    border-bottom: 2px solid $light-color;
+    border-bottom: 3px solid $light-color;
 }
 
 .legend {
-    margin: 1rem 0 -1rem 2rem;
+    margin: 1rem 0 -.7rem 2rem;
     z-index: 10;
     color: $third-color;
     background: $darkest-color;
-    padding: .2em;
+    padding: .2em .5em;
     text-align: center;
     width: 35%;
     border-radius: 10px;
+    font-size: .8em;
 }
 
 .list-border {
@@ -72,6 +73,7 @@ h1, h2, h3 {
 .nav-link:hover {
     background: $primary-color;
 }
+
 
 #off-canvas {
     background-image: linear-gradient($third-color,$third-color);
