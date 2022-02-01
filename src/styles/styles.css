@@ -5,12 +5,17 @@ body {
   max-width: 100vw;
   height: 100vh;
   background-color: #975454;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#333333), to(#1A1A1A));
-  background-image: linear-gradient(0deg, #333333, #1A1A1A);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#1A1A1A), to(#333333));
+  background-image: linear-gradient(0deg, #1A1A1A, #333333);
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Manjari', sans-serif;
   text-align: center;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 h1, h2, h3 {
@@ -18,8 +23,8 @@ h1, h2, h3 {
 }
 
 .navbar {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#613237), to(#613237));
-  background-image: linear-gradient(#613237, #613237);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#1A1A1A), to(#1A1A1A));
+  background-image: linear-gradient(0deg, #1A1A1A, #1A1A1A);
   max-width: 100vw;
 }
 
@@ -28,13 +33,13 @@ h1, h2, h3 {
 }
 
 .active {
-  border-bottom: 3px solid #eeeeee;
+  border-bottom: 3px solid #47b7d3;
 }
 
 .legend {
   margin: 1rem 0 -.7rem 2rem;
   z-index: 10;
-  color: #613237;
+  color: #572e32;
   background: #1A1A1A;
   padding: .2em .5em;
   text-align: center;
@@ -54,25 +59,26 @@ h1, h2, h3 {
   font-family: 'Manjari', sans-serif;
   text-transform: uppercase;
   min-width: 8rem;
-  font-size: .8em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  font-size: .6em;
+  font-weight: bold;
 }
 
 .nav-link:hover {
-  background: #975454;
+  background: #333333;
 }
 
 #off-canvas {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#613237), to(#613237));
-  background-image: linear-gradient(#613237, #613237);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#47b7d3), to(#47b7d3));
+  background-image: linear-gradient(#47b7d3, #47b7d3);
+}
+
+#off-canvas .active {
+  border-bottom: unset;
+  border-bottom: 3px solid #1A1A1A;
+}
+
+#off-canvas .nav-link:hover {
+  background: #eeeeee;
 }
 
 .carousel {
@@ -93,5 +99,34 @@ h1, h2, h3 {
 
 .jumbotron {
   background: #975454;
+}
+
+.shipping-div {
+  max-width: 900px;
+  height: 75px;
+  background-color: #47b7d3;
+  margin: 1rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #eeeeee;
+}
+
+.main-jumbo {
+  background-image: url("../images/jumbotron.png");
+  height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom: 3px solid #975454;
+  max-width: 900px;
+  height: 300px;
+  margin: 0 auto;
+  background-position-y: center;
 }
 /*# sourceMappingURL=styles.css.map */

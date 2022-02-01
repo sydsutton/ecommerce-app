@@ -36,7 +36,7 @@ const NavbarComponent = () => {
 
     return (
 
-        <Navbar className="navbar" bg="dark" variant="dark" expand="md">
+        <Navbar className="navbar" variant="dark" expand="md">
             <Container fluid>
                 <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
                 <Nav className="d-none d-md-block w-75" activeKey={location.pathname}>
@@ -85,41 +85,41 @@ const NavbarComponent = () => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav activeKey={location.pathname} className="justify-content-end flex-grow-1 pe-3">
-                            <Nav.Link href="/" className="text-light nav-link">
+                            <Nav.Link href="/" className="text-dark nav-link">
                                 <Home fontSize="small" />{location.pathname === "/" ? "  Home" : null}
                             </Nav.Link>
                             <h6 className="legend">Products</h6>
                             <List className="list-border">
                                 <ListItem>
-                                    <Nav.Link className="w-100 text-light nav-link" href="/products">
+                                    <Nav.Link className="w-100 text-dark nav-link" href="/products">
                                         {location.pathname === "/products" ? <GiHoodie /> : null} Hoodies
                                     </Nav.Link>
                                 </ListItem>
                                 <ListItem>
-                                    <Nav.Link className="w-100 text-light nav-link" href="/products">
+                                    <Nav.Link className="w-100 text-dark nav-link" href="/products">
                                     {location.pathname === "/products" ? <GiArmoredPants /> : null} HoodiesJeans
                                     </Nav.Link>
                                 </ListItem>
                                 <ListItem>
-                                    <Nav.Link className="w-100 text-light nav-link" href="/products">
+                                    <Nav.Link className="w-100 text-dark nav-link" href="/products">
                                     {location.pathname === "/products" ? <GiMonclerJacket/> : null} HoodiesJackets
                                     </Nav.Link>
                                 </ListItem>
                                 <ListItem>
-                                    <Nav.Link className="w-100 text-light nav-link" href="/products">
+                                    <Nav.Link className="w-100 text-dark nav-link" href="/products">
                                     {location.pathname === "/products" ? <FaBlackTie /> : null} Suits
                                     </Nav.Link>
                                 </ListItem>
                                 <ListItem>
-                                    <Nav.Link className="w-100 text-light nav-link" href="/products">
+                                    <Nav.Link className="w-100 text-dark nav-link" href="/products">
                                     {location.pathname === "/products" ? <FaTshirt /> : null} HoodiesT-shirts
                                     </Nav.Link>
                                 </ListItem>
                             </List>
-                            <Nav.Link href="/contact" className="text-light nav-link">
+                            <Nav.Link href="/contact" className="text-dark nav-link">
                                 <AlternateEmail fontSize="small" />{location.pathname === "/contact" ? "  Contact" : null}
                             </Nav.Link>
-                            <Nav.Link href="/signin" className="text-light nav-link">
+                            <Nav.Link href="/signin" className="text-dark nav-link">
                                 <FaSignInAlt size={15} />{location.pathname === "/signin" ? "  Sign In" : null}
                             </Nav.Link>
                         </Nav>
