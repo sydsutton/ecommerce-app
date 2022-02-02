@@ -22,6 +22,10 @@ h1, h2, h3 {
   font-family: 'M PLUS 1 Code', sans-serif;
 }
 
+.brand:hover {
+  color: #47b7d3;
+}
+
 .navbar {
   background-image: -webkit-gradient(linear, left bottom, left top, from(#1A1A1A), to(#1A1A1A));
   background-image: linear-gradient(0deg, #1A1A1A, #1A1A1A);
@@ -37,11 +41,11 @@ h1, h2, h3 {
 }
 
 .legend {
-  margin: 1rem 0 -.7rem 2rem;
+  margin: 1rem 0 -.8rem 2rem;
   z-index: 10;
-  color: #47b7d3;
+  color: #eeeeee;
   background: #1A1A1A;
-  padding: .3em .5em;
+  padding: .4em .5em;
   text-align: center;
   width: 35%;
   border-radius: 10px;
@@ -68,17 +72,17 @@ h1, h2, h3 {
 }
 
 #off-canvas {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#47b7d3), to(#47b7d3));
-  background-image: linear-gradient(#47b7d3, #47b7d3);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#333333));
+  background-image: linear-gradient(#333333, #333333);
 }
 
 #off-canvas .active {
   border-bottom: unset;
-  border-bottom: 3px solid #1A1A1A;
+  border-bottom: 3px solid #47b7d3;
 }
 
 #off-canvas .nav-link:hover {
-  background: #eeeeee;
+  background: #1A1A1A;
 }
 
 .carousel {
@@ -104,7 +108,7 @@ h1, h2, h3 {
 .shipping-div {
   max-width: 900px;
   height: 75px;
-  background-color: #47b7d3;
+  background-color: #975454;
   margin: 1rem auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -152,8 +156,8 @@ h1, h2, h3 {
   font-size: .7em;
   background: #333333;
   text-align: left;
-  padding: .5em;
-  height: 450px;
+  padding: 1em;
+  height: 470px;
 }
 
 .product-image {
@@ -166,5 +170,16 @@ h1, h2, h3 {
 
 .product-name {
   max-width: 200px;
+}
+
+.rating-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 60%;
 }
 /*# sourceMappingURL=styles.css.map */

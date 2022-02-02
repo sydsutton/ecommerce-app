@@ -61,11 +61,11 @@ const CategoryComponent = () => {
                     const salePrice = (product.originPrice - product.discount)
 
                     return (
-                        <Link 
-                            to={`/products/${category}/${product.productCode}`} 
-                            className="text-decoration-none text-light m-2 shadow"
-                        >
-                            <div className="product-link" key={index}>
+                        <div className="product-link m-1" key={index}>
+                            <Link 
+                                to={`/products/${category}/${product.productCode}`} 
+                                className="shadow"
+                            >
                                 <img 
                                     src={selectedHoverIndex === index ? product.thumbnailUrls[1] : product.imageUrl} 
                                     alt={product.name} 
@@ -73,7 +73,14 @@ const CategoryComponent = () => {
                                     onMouseLeave={() => setSelectedHoverIndex(-1)} 
                                     className="product-image" 
                                 />
+                            </Link>
+                            <Link 
+                                to={`/products/${category}/${product.productCode}`} 
+                                className="text-decoration-none text-light shadow"
+                            >
                                 <p className="mt-2 product-name">{product.name}</p>
+                            </Link>
+                            <div className="rating-div text-secondary">
                                 <Rating 
                                     value={product.ratingValue} 
                                     size="small" 
@@ -81,21 +88,22 @@ const CategoryComponent = () => {
                                     precision={0.5} 
                                     readOnly 
                                 />
-                                {product.discount ? 
-                                    <div className="w-25 mx-auto d-flex justify-content-evenly align-items-center">
-                                        <h6 className="text-danger d-inline "><del>${product.originPrice}</del></h6>
-                                        <h5 className="text-light d-inline">${salePrice.toFixed(2)}</h5>
-                                    </div>
-                                : 
-                                    <p>${product.originPrice}</p>
-                                }
-                                <div className="d-flex justify-content-end">
-                                    <IconButton color="primary" size="small">
-                                        <BsFillCartPlusFill/>
-                                    </IconButton>
-                                </div>
+                                <p className="small">{product.reviews} reviews</p>
                             </div>
-                        </Link>
+                            {product.discount ? 
+                                <div className="w-25">
+                                    <p className="text-danger d-inline "><del>${product.originPrice}</del></p>
+                                    <h6 className="text-light d-inline">${salePrice.toFixed(2)}</h6>
+                                </div>
+                            : 
+                                <p>${product.originPrice}</p>
+                            }
+                            <div className="d-flex justify-content-end">
+                                <IconButton color="primary" size="small">
+                                    <BsFillCartPlusFill/>
+                                </IconButton>
+                            </div>
+                        </div>
                     )
                 })}
             </div>

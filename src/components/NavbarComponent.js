@@ -45,7 +45,7 @@ const NavbarComponent = () => {
     const sideBarCategories = categoriesData.map(category => {
         return (
             <ListItem key={category}>
-                <Nav.Link className="w-100 text-dark nav-link" href={`/products/${category.routeName}`}>
+                <Nav.Link className="w-100 text-light nav-link" href={`/products/${category.routeName}`}>
                     {location.pathname === `/products/${category.routeName}` ? <FaBlackTie size={18} /> : null} {category.title}
                 </Nav.Link>
             </ListItem>
@@ -56,7 +56,7 @@ const NavbarComponent = () => {
 
         <Navbar className="navbar" variant="dark" expand="md">
             <Container fluid>
-                <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+                <Navbar.Brand><Link to="/" className="text-decoration-none brand">Best Drest</Link></Navbar.Brand>
                 <Nav className="d-none d-md-block w-75" activeKey={location.pathname}>
                     <Navbar.Collapse className="justify-content-evenly">
                         <Link to="/" className="text-decoration-none">
@@ -91,21 +91,21 @@ const NavbarComponent = () => {
                     style={{maxWidth: "250px"}}
                 >
                     <Offcanvas.Header closeButton>
-                        <Offcanvas.Title className="text-light">Dress your Besst</Offcanvas.Title>
+                        <Offcanvas.Title className="text-light">Best Drest</Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav activeKey={location.pathname} className="justify-content-end flex-grow-1 pe-3">
-                            <Nav.Link href="/signin" className="text-dark nav-link mb-2">
+                            <Nav.Link href="/signin" className="text-light nav-link mb-2">
                                 <FaSignInAlt size={15} />{location.pathname === "/signin" ? "  Sign In" : null}
                             </Nav.Link>
-                            <Nav.Link href="/" className="text-dark nav-link">
+                            <Nav.Link href="/" className="text-light nav-link">
                                 <Home fontSize="small" />{location.pathname === "/" ? "  Home" : null}
                             </Nav.Link>
                             <h6 className="legend">Products</h6>
                             <List className="list-border">
                                 {sideBarCategories}
                             </List>
-                            <Nav.Link href="/contact" className="text-dark nav-link mt-2">
+                            <Nav.Link href="/contact" className="text-light nav-link mt-2">
                                 <AlternateEmail fontSize="small" />{location.pathname === "/contact" ? "  Contact" : null}
                             </Nav.Link>
                         </Nav>

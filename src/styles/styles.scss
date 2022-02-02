@@ -31,6 +31,10 @@ h1, h2, h3 {
 
 //Navbar 
 
+.brand:hover {
+    color: $highlight-color;
+}
+
 .navbar {
     // background-image: linear-gradient(135deg, $third-color, $secondary-color);
     background-image: linear-gradient(0deg, $darkest-color,$darkest-color);
@@ -46,11 +50,11 @@ h1, h2, h3 {
 }
 
 .legend {
-    margin: 1rem 0 -.7rem 2rem;
+    margin: 1rem 0 -.8rem 2rem;
     z-index: 10;
-    color: $highlight-color;
+    color: $light-color;
     background: $darkest-color;
-    padding: .3em .5em;
+    padding: .4em .5em;
     text-align: center;
     width: 35%;
     border-radius: 10px;
@@ -78,16 +82,16 @@ h1, h2, h3 {
 
 
 #off-canvas {
-    background-image: linear-gradient($highlight-color,$highlight-color);
+    background-image: linear-gradient($dark-color,$dark-color);
 }
 
 #off-canvas .active {
     border-bottom: unset;
-    border-bottom: 3px solid $darkest-color;
+    border-bottom: 3px solid $highlight-color;
 }
 
 #off-canvas .nav-link:hover {
-    background: $light-color;
+    background: $darkest-color;
 }
 
 //Main//
@@ -113,7 +117,7 @@ h1, h2, h3 {
 .shipping-div {
     max-width: 900px;
     height: 75px;
-    background-color: $highlight-color;
+    background-color: $primary-color;
     margin: 1rem auto;
     display: flex;
     align-items: center;
@@ -154,8 +158,8 @@ h1, h2, h3 {
       font-size: .7em;
       background: $dark-color;
       text-align: left;
-      padding: .5em;
-      height: 450px;
+      padding: 1em;
+      height: 470px;
   }
 
   .product-image {
@@ -167,4 +171,10 @@ h1, h2, h3 {
 
   .product-name {
       max-width: 200px;
+  }
+
+  .rating-div {
+      display: flex;
+      flex-direction: row;
+      width: 60%;
   }
