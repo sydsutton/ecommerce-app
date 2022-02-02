@@ -4,7 +4,7 @@ const MainComponent = () => {
     return (
         <div>
             <div className="shipping-div">
-                <h4 className="my-auto border-bottom">Take advantage of our store-wide sales</h4>
+                <h4 className="my-auto border-bottom">Store-wide sales happening now!</h4>
             </div>
             <div className="main-jumbo"></div>
         </div>
