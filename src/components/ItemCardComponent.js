@@ -22,7 +22,7 @@ const ItemCardComponent = ({ salePrice, product, index, category }) => {
             <h5 className="product-brand">{product.brand}</h5>
             <Link 
                 to={`/products/${category}/${product.productCode}`} 
-                className="text-light text-decoration-none"
+                className="text-dark text-decoration-none"
             >
                 <p className="product-name">{product.name}</p>
             </Link>
@@ -40,7 +40,7 @@ const ItemCardComponent = ({ salePrice, product, index, category }) => {
                 {product.discount ? 
                     <div>
                         <p className="text-danger d-inline "><del>${product.originPrice}</del></p>
-                        <h6 className="text-light d-inline">${salePrice.toFixed(2)}</h6>
+                        <h6 className="text-dark d-inline">${salePrice.toFixed(2)}</h6>
                     </div>
                 : 
                     <p>${product.originPrice}</p>

@@ -9,17 +9,23 @@ import {productsData} from "../data"
 const CategoryComponent = () => {
 
     const [page, setPage] = useState(1)
-
     //scrolling up to the top of the page every time the page changes
     useEffect(() => {
-        window.scroll(0,400)
+        if(page > 1){
+            window.scroll(0,500)
+        } else {
+            window.scroll(0,0)
+        }
     }, [page])
 
     const {category} = useParams()
+    //Added this so that I can reuse the Category component for the brands. 
+    //Then used conditional rendering in the filtering of the data
+    const listOfCategories = ["jeans", "hoodie", "jackets", "suits", "tshirt"]
 
     //Pagination logic
 
-    const filteredData = productsData.filter(product => product.category === category)
+    const filteredData = productsData.filter(product => listOfCategories.includes(category) ? product.category === category : product.brand == category)
     const numberOfPages = Math.ceil((filteredData.length) / 10)
     const firstPage = numberOfPages - (numberOfPages - 1)
     const lastPage = Math.ceil(filteredData.length)
@@ -32,7 +38,7 @@ const CategoryComponent = () => {
             </div>
 
             {/* Did this to make the category plural for the title */}
-            <h2 className="category-title">{category[category.length - 1] === "s" ? category : category + "s"}</h2>
+            <h2 className="category-title">{listOfCategories.includes(category) && category[category.length - 1] !== "s" ? category + "s" : category }</h2>
             <div className="container">
                 {products.map((product, index) => {
                     // Had to put this in because some of the discounts were larger than the

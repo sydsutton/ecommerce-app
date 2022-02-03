@@ -11,6 +11,7 @@ import {
 import {
     List,
     ListItem,
+    Switch
 } from "@mui/material"
 
 import {
@@ -28,10 +29,11 @@ import {
 import {
     MenuOpen,
     Home,
-    AlternateEmail
+    AlternateEmail,
+    ConstructionOutlined
 } from '@mui/icons-material';
 
-import {categoriesData} from "../data"
+import {categoriesData, productsData} from "../data"
 
 const NavbarComponent = () => {
     const location = useLocation()
@@ -42,6 +44,16 @@ const NavbarComponent = () => {
         )
     })
 
+    //Brands dropdown logic
+    const brands = productsData.map(item => item.brand)
+    const brandsList = new Set(brands)
+
+    const brandsComp = [...brandsList].sort().map((brand, index) => {
+        return (
+            <NavDropdown.Item key={index} href={`/products/${brand}`}>{brand}</NavDropdown.Item>
+        )
+    })
+    //Drawer component
     const sideBarCategories = categoriesData.map(category => {
         return (
             <ListItem key={category}>
@@ -51,6 +63,16 @@ const NavbarComponent = () => {
             </ListItem>
         )
     })
+
+    // const toggleSwitch = 
+    //     <Switch 
+    //         color="default" 
+    //         defaultChecked 
+    //         // onChange={() => changeTheme(!theme)}
+    //         color="primary"
+    //         size="small"
+    //     />
+
 
     return (
 
@@ -67,6 +89,11 @@ const NavbarComponent = () => {
                         <NavDropdown title="Products">
                             {categories}
                         </NavDropdown>
+                        <NavDropdown title="Brands">
+                            <div className="brand-list-container">
+                                {brandsComp}
+                            </div>
+                        </NavDropdown>
                         <Link to="/contact" className="text-decoration-none">
                             <Nav.Link href="/contact" className="nav-link">
                                 <AlternateEmail fontSize="small" />{location.pathname === "/contact" ? "  Contact" : null}
@@ -77,6 +104,7 @@ const NavbarComponent = () => {
                                 <FaSignInAlt size={15} />{location.pathname === "/signin" ? "  Sign In" : null}
                             </Nav.Link>
                         </Link>
+                        {/* {toggleSwitch} */}
                     </Navbar.Collapse>
                 </Nav>
                 <Navbar.Toggle >
@@ -92,6 +120,7 @@ const NavbarComponent = () => {
                 >
                     <Offcanvas.Header closeButton>
                         <Offcanvas.Title className="text-light">Best Drest</Offcanvas.Title>
+                        {/* {toggleSwitch} */}
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav activeKey={location.pathname} className="justify-content-end flex-grow-1 pe-3">
