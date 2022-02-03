@@ -152,16 +152,6 @@ h1, h2, h3, .nav-link {
       text-transform: capitalize;
   }
 
-  .container {
-      max-width: 90%;
-      margin: 0 auto;
-      display: flex; 
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-  }
-
   .item-container {
       display: flex;
       flex-direction: column;
@@ -222,6 +212,7 @@ h1, h2, h3, .nav-link {
       color: $dark-color;
     text-align: center;
   }
+
 //Product Component
 
   .item-brand {
@@ -250,4 +241,10 @@ h1, h2, h3, .nav-link {
       width: 50px;
       border-radius: 50%;
       border: 1px solid yellow;
+  }
+
+  //Sign in component
+
+  .sign-in-form {
+      background: $light-color;
   }
