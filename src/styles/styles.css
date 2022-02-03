@@ -36,7 +36,7 @@ h1, h2, h3 {
   color: #eeeeee;
 }
 
-.active {
+.navbar .active {
   border-bottom: 3px solid #47b7d3;
 }
 
@@ -79,6 +79,10 @@ h1, h2, h3 {
 #off-canvas .active {
   border-bottom: unset;
   border-bottom: 3px solid #47b7d3;
+}
+
+#off-canvas .nav-link {
+  font-size: .9em;
 }
 
 #off-canvas .nav-link:hover {
@@ -234,5 +238,25 @@ h1, h2, h3 {
   letter-spacing: .4em;
   font-weight: bold;
   color: #121212;
+  text-align: center;
+}
+
+.item-brand {
+  color: #1A1A1A;
+  letter-spacing: .5em;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+}
+
+.product-carousel {
+  height: auto;
+  border: none;
+}
+
+.product-carousel-image {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: auto;
+  border: none;
 }
 /*# sourceMappingURL=styles.css.map */

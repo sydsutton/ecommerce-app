@@ -47,7 +47,7 @@ const ItemCardComponent = ({ salePrice, product, index, category }) => {
                 }
             </div>
             <div className="cart-icon-container">
-                <IconButton style={{color: "#47b7d3"}} size="small" className="cart-icon" aria-label="add to shopping cart">
+                <IconButton style={{color: "#47b7d3"}} className="cart-icon" aria-label="add to shopping cart">
                     <BsFillCartPlusFill/>
                 </IconButton>
             </div>
