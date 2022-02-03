@@ -6,7 +6,7 @@ import { BsFillCartPlusFill } from 'react-icons/bs';
 const ItemCardComponent = ({ salePrice, product, index, category }) => {
     const [selectedHoverIndex, setSelectedHoverIndex] = useState(-1)
     return (
-        <div>
+        <div className="item-container">
              <Link 
                 to={`/products/${category}/${product.productCode}`} 
                 className="shadow"
@@ -19,11 +19,12 @@ const ItemCardComponent = ({ salePrice, product, index, category }) => {
                     className="product-image" 
                 />
             </Link>
+            <h5 className="product-brand">{product.brand}</h5>
             <Link 
                 to={`/products/${category}/${product.productCode}`} 
-                className="text-decoration-none text-light shadow"
+                className="text-light text-decoration-none"
             >
-                <p className="mt-2 product-name">{product.name}</p>
+                <p className="product-name">{product.name}</p>
             </Link>
             <div className="rating-div text-secondary">
                 <Rating 
@@ -35,16 +36,18 @@ const ItemCardComponent = ({ salePrice, product, index, category }) => {
                 />
                 <p className="small">{product.reviews} reviews</p>
             </div>
-            {product.discount ? 
-                <div className="w-25">
-                    <p className="text-danger d-inline "><del>${product.originPrice}</del></p>
-                    <h6 className="text-light d-inline">${salePrice.toFixed(2)}</h6>
-                </div>
-            : 
-                <p>${product.originPrice}</p>
-            }
-            <div className="d-flex justify-content-end">
-                <IconButton color="primary" size="small">
+            <div className="price-div">
+                {product.discount ? 
+                    <div>
+                        <p className="text-danger d-inline "><del>${product.originPrice}</del></p>
+                        <h6 className="text-light d-inline">${salePrice.toFixed(2)}</h6>
+                    </div>
+                : 
+                    <p>${product.originPrice}</p>
+                }
+            </div>
+            <div className="cart-icon-container">
+                <IconButton style={{color: "#47b7d3"}} size="small" className="cart-icon" aria-label="add to shopping cart">
                     <BsFillCartPlusFill/>
                 </IconButton>
             </div>

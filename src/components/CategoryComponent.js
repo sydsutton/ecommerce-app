@@ -12,7 +12,7 @@ const CategoryComponent = () => {
 
     //scrolling up to the top of the page every time the page changes
     useEffect(() => {
-        window.scroll(0,0)
+        window.scroll(0,400)
     }, [page])
 
     const {category} = useParams()
@@ -31,17 +31,16 @@ const CategoryComponent = () => {
                 <CarouselComponent />
             </div>
 
-{/* Did this to make the category plural for the title */}
-
+            {/* Did this to make the category plural for the title */}
             <h2 className="category-title">{category[category.length - 1] === "s" ? category : category + "s"}</h2>
-            <div className="d-flex flex-row flex-wrap product-container">
+            <div className="container">
                 {products.map((product, index) => {
                     // Had to put this in because some of the discounts were larger than the
                     //original prices, causing a negative price on a lot of items
                     const salePrice = product.originPrice > product.discount ? (product.originPrice - product.discount) : product.discount - product.originPrice
 
                     return (
-                        <div className="product-link m-1" key={index}>
+                        <div className="product-link m-2" key={index}>
                            <ItemCardComponent salePrice={salePrice} product={product} index={index} category={category} />
                         </div>
                     )
