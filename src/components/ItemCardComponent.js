@@ -51,38 +51,34 @@ const ItemCardComponent = ({ salePrice, product, index, category }) => {
                 }
             </div>
             <div className="cart-icon-container">
-                {!isLoggedIn ? 
+
                     <IconButton
-                        style={{color: "#7c7c7c"}} 
+                        style={
+                            !isLoggedIn ?  
+                                {color: "#7c7c7c"} : 
+                            isLoggedIn && !savedItems.includes(product) ? 
+                                {color: "#47b7d3"} : 
+                                {color: "rgb(177, 31, 31)"}
+                            } 
                         className="cart-icon" 
-                        disabled
-                        aria-label="remove from shopping cart" 
+                        disabled={!isLoggedIn}
+                        onClick={
+                            savedItems.includes(product) ? 
+                            () => removeItem(product) : 
+                            () => {
+                                setSnackbarOpen(true)
+                                saveItem(product)
+                            }}
+                        aria-label={savedItems.includes(product) ? `remove from shopping cart` : `add to cart`}
                     >
-                        <BsFillCartXFill />
+                        {!isLoggedIn ? 
+                            <BsFillCartXFill /> : 
+                            savedItems.includes(product) ? 
+                            <BsFillCartDashFill/> : 
+                            <BsFillCartPlusFill/> 
+                        }
                     </IconButton>
-                :
-                !savedItems.includes(product) && isLoggedIn ? 
-                    <IconButton 
-                        style={{color: "#47b7d3"}} 
-                        className="cart-icon" 
-                        aria-label="add to shopping cart" 
-                        onClick={() => {
-                            saveItem(product)
-                            setSnackbarOpen(true)
-                        }}
-                    >
-                        <BsFillCartPlusFill/>
-                    </IconButton>
-                :
-                    <IconButton
-                        style={{color: "#7f7f7f"}} 
-                        className="cart-icon" 
-                        aria-label="remove from shopping cart" 
-                        onClick={() => removeItem(product)}
-                    >
-                        <BsFillCartDashFill/>
-                    </IconButton>
-                }
+
                 {savedItems.includes(product) ? 
                         <Snackbar
                             open={snackbarOpen}

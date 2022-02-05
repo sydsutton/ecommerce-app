@@ -9,7 +9,7 @@ import {productsData} from "../data"
 const ProductComponent = () => {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
     const {productId} = useParams()
-    const {savedItems, saveItem, removeItem} = useContext(Context)
+    const {savedItems, saveItem, removeItem, isLoggedIn} = useContext(Context)
 
     const item = productsData.filter(product => product.productCode === productId)[0]
     return (
@@ -41,29 +41,28 @@ const ProductComponent = () => {
                 </div>
                 <div className="col-lg-5 text-light text-center text-md-start">
                     <div className="d-flex flex-row justify-content-evenly mb-3">
-                        {savedItems.includes(item) ? 
                             <Button 
                                 variant="contained" 
-                                style={{background: "#7c7c7c"}}
+                                style={
+                                    savedItems.includes(item) ? 
+                                        {background: "rgb(177, 31, 31)"} : 
+                                        !isLoggedIn ? 
+                                        {background: "#7c7c7c", color: "white"} :
+                                        null}
                                 size="small" 
-                                startIcon={<BsFillCartDashFill />}
-                                onClick={() => removeItem(item)}
+                                disabled={!isLoggedIn}
+                                startIcon={savedItems.includes(item) ? <BsFillCartDashFill /> : <BsFillCartPlusFill />}
+                                onClick={savedItems.includes(item) ? 
+                                    () => removeItem(item) : 
+                                    () => {
+                                        setSnackbarOpen(true)
+                                        saveItem(item)
+                                    }
+                                }
                             >
-                                Remove from cart
+                                {savedItems.includes(item) ? "Remove from cart" : "Add to cart" }
                             </Button>
-                        :
-                            <Button 
-                                variant="contained" 
-                                size="small" 
-                                startIcon={<BsFillCartPlusFill />}
-                                onClick={() => {
-                                    setSnackbarOpen(true)
-                                    saveItem(item)
-                                }}
-                            >
-                                Add to cart
-                            </Button>
-                        }
+
                         <Button 
                             variant="outlined" 
                             color="primary" 
