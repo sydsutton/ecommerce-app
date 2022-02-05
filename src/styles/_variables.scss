@@ -1,0 +1,18 @@
+$primary-color: #975454;
+$secondary-color: #64111d;
+$third-color: #572e32;
+$darkest-color: #1A1A1A;
+$dark-color: #333333;
+$light-color: #eeeeee;
+$highlight-color: #47b7d3;
+
+@mixin flexCenter($direction) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: $direction;
+}
+
+@mixin marginCenter {
+    margin: 0 auto;
+}

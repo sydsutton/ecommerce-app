@@ -63,7 +63,7 @@ h1, h2, h3, .nav-link {
   text-align: center;
   font-family: 'Manjari', sans-serif;
   text-transform: uppercase;
-  min-width: 8rem;
+  min-width: 7rem;
   font-size: .6em;
   font-weight: bold;
 }
@@ -75,6 +75,22 @@ h1, h2, h3, .nav-link {
 
 .nav-link:hover {
   background: #333333;
+}
+
+.nav-cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 #off-canvas {
@@ -125,6 +141,10 @@ h1, h2, h3, .nav-link {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   color: #eeeeee;
 }
 
@@ -150,16 +170,16 @@ h1, h2, h3, .nav-link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
   min-height: 500px;
 }
 

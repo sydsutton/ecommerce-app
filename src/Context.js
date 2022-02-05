@@ -5,7 +5,7 @@ const Context = React.createContext('default')
 
 const ContextProvider = (props) => {
     const [savedItems, setSavedItems] = useState([])
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(true)
     const [currentUser, setCurrentUser] = useState()
 
     useEffect(() => {

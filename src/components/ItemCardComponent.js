@@ -1,12 +1,13 @@
 import React, {useState, useContext} from 'react';
 import {Context} from "../Context"
-import {Rating, IconButton} from "@mui/material"
+import {Rating, IconButton, Snackbar, Alert} from "@mui/material"
 import {Link} from "react-router-dom"
-import { BsFillCartPlusFill, BsFillCartDashFill } from 'react-icons/bs';
+import { BsFillCartPlusFill, BsFillCartDashFill, BsFillCartXFill } from 'react-icons/bs';
 
 const ItemCardComponent = ({ salePrice, product, index, category }) => {
     const [selectedHoverIndex, setSelectedHoverIndex] = useState(-1)
-    const {savedItems, saveItem, removeItem} = useContext(Context)
+    const [snackbarOpen, setSnackbarOpen] = useState(false)
+    const {savedItems, saveItem, removeItem, isLoggedIn} = useContext(Context)
     console.log(savedItems)
     return (
         <div className="item-container">
@@ -50,14 +51,50 @@ const ItemCardComponent = ({ salePrice, product, index, category }) => {
                 }
             </div>
             <div className="cart-icon-container">
-                {savedItems.includes(product) ? 
-                    <IconButton style={{color: "red"}} className="cart-icon" aria-label="remove from shopping cart" onClick={() => removeItem(product)}>
-                        <BsFillCartDashFill/>
+                {!isLoggedIn ? 
+                    <IconButton
+                        style={{color: "#7c7c7c"}} 
+                        className="cart-icon" 
+                        disabled
+                        aria-label="remove from shopping cart" 
+                    >
+                        <BsFillCartXFill />
                     </IconButton>
-                    :
-                    <IconButton style={{color: "#47b7d3"}} className="cart-icon" aria-label="add to shopping cart" onClick={() => saveItem(product)}>
+                :
+                !savedItems.includes(product) && isLoggedIn ? 
+                    <IconButton 
+                        style={{color: "#47b7d3"}} 
+                        className="cart-icon" 
+                        aria-label="add to shopping cart" 
+                        onClick={() => {
+                            saveItem(product)
+                            setSnackbarOpen(true)
+                        }}
+                    >
                         <BsFillCartPlusFill/>
                     </IconButton>
+                :
+                    <IconButton
+                        style={{color: "#7f7f7f"}} 
+                        className="cart-icon" 
+                        aria-label="remove from shopping cart" 
+                        onClick={() => removeItem(product)}
+                    >
+                        <BsFillCartDashFill/>
+                    </IconButton>
+                }
+                {savedItems.includes(product) ? 
+                        <Snackbar
+                            open={snackbarOpen}
+                            autoHideDuration={3000}
+                            onClose={() => setSnackbarOpen(false)}
+                        >
+                            <Alert severity="success">
+                                {`${product.brand} item added to cart!`}
+                            </Alert>
+                        </Snackbar>
+                    :
+                    null
                 }
             </div>
         </div>

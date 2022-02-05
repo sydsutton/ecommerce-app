@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react';
 import {Context} from "../Context"
 import {Link} from "react-router-dom"
 import { useLocation } from 'react-router';
+
 import {
     Nav,
     Navbar,
@@ -16,30 +17,24 @@ import {
 } from "@mui/material"
 
 import {
-    GiHoodie, 
-    GiArmoredPants, 
-    GiMonclerJacket
-} from "react-icons/gi"
-
-import {
     FaBlackTie, 
-    FaTshirt,
     FaSignInAlt
 } from "react-icons/fa"
 
 import {
     MenuOpen,
     Home,
-    AlternateEmail,
-    ConstructionOutlined
+    AlternateEmail
 } from '@mui/icons-material';
+
+import {BsCartFill} from "react-icons/bs"
 
 import {categoriesData, productsData} from "../data"
 
 const NavbarComponent = () => {
     const location = useLocation()
 
-    const {isLoggedIn, setIsLoggedIn} = useContext(Context)
+    const {isLoggedIn, setIsLoggedIn, savedItems} = useContext(Context)
 
     const categories = categoriesData.map(category => {
         return (
@@ -75,10 +70,10 @@ const NavbarComponent = () => {
     //         color="primary"
     //         size="small"
     //     />
-
+    console.log(savedItems)
     return (
 
-        <Navbar className="navbar" variant="dark" expand="md">
+        <Navbar className="navbar" variant="dark" expand="md" sticky="top">
             <Container fluid>
                 <Navbar.Brand><Link to="/" className="text-decoration-none brand">Best Drest</Link></Navbar.Brand>
                 <Nav className="d-none d-md-block w-75" activeKey={location.pathname}>

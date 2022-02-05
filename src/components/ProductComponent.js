@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import {useParams} from "react-router-dom"
+import {Context} from "../Context"
 import {Carousel} from "react-bootstrap"
-import {Button} from "@mui/material"
-import { BsFillCartPlusFill } from 'react-icons/bs';
+import {Button, Alert, Snackbar} from "@mui/material"
+import { BsFillCartPlusFill, BsFillCartDashFill } from 'react-icons/bs';
 import {productsData} from "../data"
 
 const ProductComponent = () => {
+    const [snackbarOpen, setSnackbarOpen] = useState(false)
     const {productId} = useParams()
+    const {savedItems, saveItem, removeItem} = useContext(Context)
 
     const item = productsData.filter(product => product.productCode === productId)[0]
     return (
@@ -38,13 +41,29 @@ const ProductComponent = () => {
                 </div>
                 <div className="col-lg-5 text-light text-center text-md-start">
                     <div className="d-flex flex-row justify-content-evenly mb-3">
-                        <Button 
-                            variant="contained" 
-                            size="small" 
-                            startIcon={<BsFillCartPlusFill />}
-                        >
-                            Add to cart
-                        </Button>
+                        {savedItems.includes(item) ? 
+                            <Button 
+                                variant="contained" 
+                                style={{background: "#7c7c7c"}}
+                                size="small" 
+                                startIcon={<BsFillCartDashFill />}
+                                onClick={() => removeItem(item)}
+                            >
+                                Remove from cart
+                            </Button>
+                        :
+                            <Button 
+                                variant="contained" 
+                                size="small" 
+                                startIcon={<BsFillCartPlusFill />}
+                                onClick={() => {
+                                    setSnackbarOpen(true)
+                                    saveItem(item)
+                                }}
+                            >
+                                Add to cart
+                            </Button>
+                        }
                         <Button 
                             variant="outlined" 
                             color="primary" 
@@ -65,6 +84,19 @@ const ProductComponent = () => {
                     <p>{item.desc.brand}</p>
                 </div>
             </div>
+            {savedItems.includes(item) ? 
+                <Snackbar
+                    open={snackbarOpen}
+                    autoHideDuration={3000}
+                    onClose={() => setSnackbarOpen(false)}
+                >
+                    <Alert severity="success">
+                        {`${item.brand} item added to cart!`}
+                    </Alert>
+                </Snackbar>
+                :
+                null
+            }
         </div>
     );
 };
