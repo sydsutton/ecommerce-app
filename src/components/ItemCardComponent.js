@@ -1,10 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import {Context} from "../Context"
 import {Rating, IconButton} from "@mui/material"
 import {Link} from "react-router-dom"
-import { BsFillCartPlusFill } from 'react-icons/bs';
+import { BsFillCartPlusFill, BsFillCartDashFill } from 'react-icons/bs';
 
 const ItemCardComponent = ({ salePrice, product, index, category }) => {
     const [selectedHoverIndex, setSelectedHoverIndex] = useState(-1)
+    const {savedItems, saveItem, removeItem} = useContext(Context)
+    console.log(savedItems)
     return (
         <div className="item-container">
              <Link 
@@ -47,9 +50,15 @@ const ItemCardComponent = ({ salePrice, product, index, category }) => {
                 }
             </div>
             <div className="cart-icon-container">
-                <IconButton style={{color: "#47b7d3"}} className="cart-icon" aria-label="add to shopping cart">
-                    <BsFillCartPlusFill/>
-                </IconButton>
+                {savedItems.includes(product) ? 
+                    <IconButton style={{color: "red"}} className="cart-icon" aria-label="remove from shopping cart" onClick={() => removeItem(product)}>
+                        <BsFillCartDashFill/>
+                    </IconButton>
+                    :
+                    <IconButton style={{color: "#47b7d3"}} className="cart-icon" aria-label="add to shopping cart" onClick={() => saveItem(product)}>
+                        <BsFillCartPlusFill/>
+                    </IconButton>
+                }
             </div>
         </div>
     );

@@ -9,6 +9,7 @@ import {productsData} from "../data"
 const CategoryComponent = () => {
     const {category} = useParams()
     const [page, setPage] = useState(1)
+
     //scrolling up to the top of the page every time the page changes
     useEffect(() => {
         if(page > 1){
@@ -47,7 +48,7 @@ const CategoryComponent = () => {
 
                         return (
                             <div className="product-link m-2" key={index}>
-                            <ItemCardComponent salePrice={salePrice} product={product} index={index} category={category} />
+                                <ItemCardComponent salePrice={salePrice} product={product} index={index} category={category} />
                             </div>
                         )
                     })}

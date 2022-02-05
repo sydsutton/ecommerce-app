@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 import {auth} from "./firebase"
 
-const Context = React.createContext()
+const Context = React.createContext('default')
 
 const ContextProvider = (props) => {
     const [savedItems, setSavedItems] = useState([])
@@ -42,13 +42,14 @@ const ContextProvider = (props) => {
         setIsLoggedIn(false)
         return auth.signOut()
     }
-
+    console.log(savedItems)
     return (
         <Context.Provider 
             value={{
                 isLoggedIn,
                 setIsLoggedIn,
                 saveItem,
+                savedItems,
                 removeItem, 
                 signUp,
                 logIn,
