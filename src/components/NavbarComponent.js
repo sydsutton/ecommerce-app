@@ -1,4 +1,5 @@
-import React, {useState } from 'react';
+import React, {useState, useContext} from 'react';
+import {Context} from "../Context"
 import {Link} from "react-router-dom"
 import { useLocation } from 'react-router';
 import {
@@ -38,6 +39,8 @@ import {categoriesData, productsData} from "../data"
 const NavbarComponent = () => {
     const location = useLocation()
 
+    const {isLoggedIn, setIsLoggedIn} = useContext(Context)
+
     const categories = categoriesData.map(category => {
         return (
             <NavDropdown.Item key={category} href={`/products/${category.routeName}`}>{category.title}</NavDropdown.Item>
@@ -72,7 +75,6 @@ const NavbarComponent = () => {
     //         color="primary"
     //         size="small"
     //     />
-
 
     return (
 
