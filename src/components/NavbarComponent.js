@@ -51,9 +51,9 @@ const NavbarComponent = () => {
         )
     })
     //Drawer component
-    const sideBarCategories = categoriesData.map(category => {
+    const sideBarCategories = categoriesData.map((category, index) => {
         return (
-            <ListItem key={category}>
+            <ListItem key={index}>
                 <Nav.Link className="w-100 text-light nav-link" href={`/products/${category.routeName}`}>
                     {location.pathname === `/products/${category.routeName}` ? <FaBlackTie size={18} /> : null} {category.title}
                 </Nav.Link>

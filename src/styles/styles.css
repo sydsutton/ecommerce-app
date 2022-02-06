@@ -23,6 +23,10 @@ h1, h2, h3, .nav-link {
   font-family: 'Manjari', sans-serif;
 }
 
+.brand {
+  color: #eeeeee;
+}
+
 .brand:hover {
   color: #47b7d3;
 }
@@ -33,41 +37,11 @@ h1, h2, h3, .nav-link {
   max-width: 100vw;
 }
 
-.brand {
-  color: #eeeeee;
-}
-
 .navbar .active {
   border-bottom: 3px solid #47b7d3;
 }
 
-.signin-btn {
-  background: transparent;
-  border: none;
-}
-
-.signin-btn:hover {
-  color: #eeeeee;
-}
-
-.legend {
-  margin: 1rem 0 -.8rem 2rem;
-  z-index: 10;
-  color: #eeeeee;
-  background: #1A1A1A;
-  padding: .4em .5em;
-  text-align: center;
-  width: 35%;
-  border-radius: 10px;
-  font-size: .8em;
-}
-
-.list-border {
-  border: 1px solid #1A1A1A;
-  border-radius: 15px;
-}
-
-.nav-link {
+.navbar .nav-link {
   color: #eeeeee;
   text-align: center;
   font-family: 'Manjari', sans-serif;
@@ -77,16 +51,16 @@ h1, h2, h3, .nav-link {
   font-weight: bold;
 }
 
-.brand-list-container {
+.navbar .nav-link:hover {
+  background: #333333;
+}
+
+.navbar .brand-list-container {
   max-height: 400px;
   overflow-y: scroll;
 }
 
-.nav-link:hover {
-  background: #333333;
-}
-
-.nav-cart {
+.navbar .nav-cart {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -102,13 +76,40 @@ h1, h2, h3, .nav-link {
           flex-direction: row;
 }
 
-.inactive {
+.navbar .inactive {
   border-bottom: none;
+}
+
+.navbar .signin-btn {
+  background: transparent;
+  border: none;
+  color: #eeeeee;
+}
+
+.navbar .signin-btn:hover {
+  color: #eeeeee;
 }
 
 #off-canvas {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#333333));
   background-image: linear-gradient(#333333, #333333);
+}
+
+#off-canvas .legend {
+  margin: 1rem 0 -.8rem 2rem;
+  z-index: 10;
+  color: #eeeeee;
+  background: #1A1A1A;
+  padding: .4em .5em;
+  text-align: center;
+  width: 35%;
+  border-radius: 10px;
+  font-size: .8em;
+}
+
+#off-canvas .list-border {
+  border: 1px solid #1A1A1A;
+  border-radius: 15px;
 }
 
 #off-canvas .active {
@@ -122,6 +123,16 @@ h1, h2, h3, .nav-link {
 
 #off-canvas .nav-link:hover {
   background: #1A1A1A;
+}
+
+#off-canvas .signin-btn {
+  background: transparent;
+  border: none;
+  color: #eeeeee;
+}
+
+#off-canvas .signin-btn:hover {
+  color: #eeeeee;
 }
 
 .carousel {
@@ -296,5 +307,12 @@ h1, h2, h3, .nav-link {
   position: absolute;
   top: calc(50% - 150px);
   right: calc(50% - 150px);
+}
+
+.sign-up-form {
+  max-width: 400px;
+  min-width: 200px;
+  background: #eeeeee;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=styles.css.map */

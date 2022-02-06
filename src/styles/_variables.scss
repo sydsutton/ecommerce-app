@@ -16,3 +16,12 @@ $highlight-color: #47b7d3;
 @mixin marginCenter {
     margin: 0 auto;
 }
+
+@mixin signInBtn {
+    background: transparent;
+    border: none;
+    color: $light-color;
+    &:hover {
+        color: $light-color;
+    }
+}

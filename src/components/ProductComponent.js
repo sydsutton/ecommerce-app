@@ -25,9 +25,9 @@ const ProductComponent = () => {
                         pause="hover" 
                         className="product-carousel"
                     >
-                        {item.thumbnailUrls.map(image => {
+                        {item.thumbnailUrls.map((image, index) => {
                             return (
-                                <Carousel.Item >
+                                <Carousel.Item key={index}>
                                     <img
                                         className="product-carousel-image img-fluid "
                                         src={image}
@@ -74,9 +74,9 @@ const ProductComponent = () => {
                     <p className="text-warning">{item.isFreeship ? "Shipping is free on this item!" : null}</p>
                     <h5>{item.name}</h5>
                     <ul className="text-start">
-                        {item.desc.about.map(listItem => {
+                        {item.desc.about.map((listItem, index) => {
                             return (
-                                <li>{listItem}</li>
+                                <li key={index}>{listItem}</li>
                             )
                         })}
                     </ul>
