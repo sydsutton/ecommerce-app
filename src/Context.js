@@ -8,6 +8,7 @@ const ContextProvider = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(true)
     const [currentUser, setCurrentUser] = useState()
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
     useEffect(() => {
         let isMounted = true
@@ -58,7 +59,9 @@ const ContextProvider = (props) => {
                 signOut,
                 currentUser,
                 isModalOpen,
-                setIsModalOpen
+                setIsModalOpen,
+                isDrawerOpen,
+                setIsDrawerOpen
             }}
         >
             {props.children}

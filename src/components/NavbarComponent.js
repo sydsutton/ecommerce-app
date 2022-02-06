@@ -2,6 +2,7 @@ import React, {useEffect, useContext} from 'react';
 import {Context} from "../Context"
 import {Link} from "react-router-dom"
 import { useLocation } from 'react-router';
+import logo from "../images/ecommlogo.png"
 
 import {
     Nav,
@@ -33,7 +34,7 @@ import {categoriesData, productsData} from "../data"
 const NavbarComponent = () => {
     const location = useLocation()
 
-    const {savedItems, setIsModalOpen, isModalOpen} = useContext(Context)
+    const {savedItems, setIsModalOpen, isModalOpen, isDrawerOpen, setIsDrawerOpen} = useContext(Context)
 
     const categories = categoriesData.map(category => {
         return (
@@ -54,7 +55,7 @@ const NavbarComponent = () => {
     const sideBarCategories = categoriesData.map((category, index) => {
         return (
             <ListItem key={index}>
-                <Nav.Link className="w-100 text-light nav-link" href={`/products/${category.routeName}`}>
+                <Nav.Link className="w-100 text-light nav-link text-center" href={`/products/${category.routeName}`}>
                     {location.pathname === `/products/${category.routeName}` ? <FaBlackTie size={18} /> : null} {category.title}
                 </Nav.Link>
             </ListItem>
@@ -65,7 +66,11 @@ const NavbarComponent = () => {
 
         <Navbar className="navbar" variant="dark" expand="md" sticky="top">
             <Container fluid>
-                <Navbar.Brand><Link to="/" className="text-decoration-none brand">S <strong>Thetic</strong></Link></Navbar.Brand>
+                <Navbar.Brand>
+                    <Link to="/" className="text-decoration-none brand">
+                        <img src={logo} height="25" alt="logo" /><strong>Thetic</strong>
+                    </Link>
+                </Navbar.Brand>
                 <Nav className="d-none d-md-block w-75" activeKey={location.pathname}>
                     <Navbar.Collapse className="justify-content-evenly">
                         <Link to="/" className="text-decoration-none">
@@ -94,9 +99,10 @@ const NavbarComponent = () => {
                         </button>
                     </Navbar.Collapse>
                 </Nav>
-                <Navbar.Toggle >
+                <Navbar.Toggle>
                     <MenuOpen 
                         className="d-block d-md-none mr-3 text-light"
+                        onClick={() => setIsDrawerOpen(!isDrawerOpen)}
                     />
                 </Navbar.Toggle>
                 <Navbar.Offcanvas 
@@ -104,9 +110,11 @@ const NavbarComponent = () => {
                     id="off-canvas"
                     placement="end" 
                     style={{maxWidth: "250px"}}
+                    show={isDrawerOpen}
+                    onHide={() => setIsDrawerOpen(!isDrawerOpen)}
                 >
                     <Offcanvas.Header closeButton>
-                        <Offcanvas.Title className="text-light">S <strong>Thetic</strong></Offcanvas.Title>
+                        {/* <Offcanvas.Title className="text-light">S <strong>Thetic</strong></Offcanvas.Title> */}
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav activeKey={location.pathname} className="justify-content-end flex-grow-1 pe-3">

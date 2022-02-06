@@ -248,15 +248,17 @@ h1, h2, h3, .nav-link {
   //Sign in modal
 
   .sign-in-form {
-      background: $light-color;
-      width: 300px;
-      height: 300px;
+        max-width: 400px;
+        min-width: 200px;
+        background: $light-color;
+        border-radius: 10px;
   }
 
   .signin-modal {
       position: absolute;
-      top: calc(50% - 150px);
-      right: calc(50% - 150px);
+      top: calc(50% - 200px);
+      left: calc(50% - 200px);
+      width: 100%;
   }
 
   .sign-up-form {
@@ -264,4 +266,11 @@ h1, h2, h3, .nav-link {
       min-width: 200px;
       background: $light-color;
       border-radius: 10px;
+  }
+
+  .child-modal {
+      position: absolute;
+      top: calc(50% - 270px);
+      left: calc(50% - 200px);
+      width: 100%;
   }

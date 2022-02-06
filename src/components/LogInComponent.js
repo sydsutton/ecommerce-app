@@ -8,6 +8,9 @@ import {
     Modal,
     Box
 } from "@mui/material"
+
+import SignUp from "./SignUpComponent"
+
 import { Link } from 'react-router-dom';
 
 import {Context} from "../Context"
@@ -15,7 +18,9 @@ import {Context} from "../Context"
 const LogInComponent = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const {isModalOpen, setIsModalOpen, logIn} = useContext(Context)
+    const [isChildModalOpen, setIsChildModalOpen] = useState(false)
+
+    const {isModalOpen, setIsModalOpen, logIn, setIsDrawerOpen, isDrawerOpen} = useContext(Context)
 
     return (
         <Modal 
@@ -23,7 +28,9 @@ const LogInComponent = () => {
             onClose={() => setIsModalOpen(false)} 
         >
             <Box className="signin-modal">
-                <form className="p-3 sign-in-form" onSubmit={() => logIn(email, password)}>
+                <form className="p-4 sign-in-form pt-2" onSubmit={() => logIn(email, password)}>
+                    <h4 className="mb-3">Log In</h4>
+                    <hr className="mb-3" />
                     <FormGroup>
                         <FormControl className="mb-3">
                             <InputLabel htmlFor="email">Email address</InputLabel>                        
@@ -36,7 +43,7 @@ const LogInComponent = () => {
                                 required
                             />
                         </FormControl>
-                        <FormControl>
+                        <FormControl className="mb-3">
                             <InputLabel htmlFor="password" shrink={password !== "" ? true : false}>Password</InputLabel>     
                             <Input 
                                 type="password" 
@@ -55,9 +62,16 @@ const LogInComponent = () => {
                     </Button>
                     <div className="d-flex flex-row mt-3 justify-content-evenly">
                         <p>Don't have an account?</p>
-                        <Link to="/signup" onClick={() => setIsModalOpen(false)}>Sign Up</Link>
+                        <Button
+                            onClick={() => {
+                                setIsChildModalOpen(true)
+                            }}
+                        >
+                            Sign Up
+                        </Button>
                     </div>
                 </form>
+                <SignUp isChildModalOpen={isChildModalOpen} setIsChildModalOpen={setIsChildModalOpen} />
             </Box>
         </Modal>
     );

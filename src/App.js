@@ -4,7 +4,7 @@ import Category from "./components/CategoryComponent"
 import Product from "./components/ProductComponent"
 import Contact from "./components/ContactComponent"
 import LogIn from "./components/LogInComponent"
-import SignUp from "./components/SignUpComponent"
+// import SignUp from "./components/SignUpComponent"
 
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
@@ -21,7 +21,7 @@ function App() {
           <Route path="/products/:brand" element={<Category />} />
           <Route path="/products/:category/:productId" element={<Product />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/signup" element={<SignUp />} />
+          {/* <Route path="/signup" element={<SignUp />} /> */}
         </Routes>
       </div>
     </Router>
