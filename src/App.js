@@ -12,14 +12,13 @@ function App() {
     <Router>
       <div className="app">
         <Navbar />
-
+        <SignIn />
         <Routes>
           <Route exact path="/" element={<Main />} />
           <Route path="/products/:category" element={<Category />} />
           <Route path="/products/:brand" element={<Category />} />
           <Route path="/products/:category/:productId" element={<Product />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/signin" element={<SignIn />} />
         </Routes>
       </div>
     </Router>

@@ -42,6 +42,15 @@ h1, h2, h3, .nav-link {
     border-bottom: 3px solid $highlight-color;
 }
 
+.signin-btn {
+    background: transparent;
+    border: none;
+    &:hover {
+        color: $light-color;
+    }
+}
+
+
 .legend {
     margin: 1rem 0 -.8rem 2rem;
     z-index: 10;
@@ -81,7 +90,9 @@ h1, h2, h3, .nav-link {
     @include flexCenter(row);
 }
 
-
+.inactive { 
+    border-bottom: none;
+}
 #off-canvas {
     background-image: linear-gradient($dark-color,$dark-color);
 }
@@ -233,8 +244,16 @@ h1, h2, h3, .nav-link {
       border: 1px solid yellow;
   }
 
-  //Sign in component
+  //Sign in modal
 
   .sign-in-form {
       background: $light-color;
+      width: 300px;
+      height: 300px;
+  }
+
+  .signin-modal {
+      position: absolute;
+      top: calc(50% - 150px);
+      right: calc(50% - 150px);
   }

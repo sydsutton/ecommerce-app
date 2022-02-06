@@ -41,6 +41,15 @@ h1, h2, h3, .nav-link {
   border-bottom: 3px solid #47b7d3;
 }
 
+.signin-btn {
+  background: transparent;
+  border: none;
+}
+
+.signin-btn:hover {
+  color: #eeeeee;
+}
+
 .legend {
   margin: 1rem 0 -.8rem 2rem;
   z-index: 10;
@@ -91,6 +100,10 @@ h1, h2, h3, .nav-link {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+.inactive {
+  border-bottom: none;
 }
 
 #off-canvas {
@@ -275,5 +288,13 @@ h1, h2, h3, .nav-link {
 
 .sign-in-form {
   background: #eeeeee;
+  width: 300px;
+  height: 300px;
+}
+
+.signin-modal {
+  position: absolute;
+  top: calc(50% - 150px);
+  right: calc(50% - 150px);
 }
 /*# sourceMappingURL=styles.css.map */

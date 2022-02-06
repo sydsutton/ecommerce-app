@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {Context} from "../Context"
 import {Link} from "react-router-dom"
 import { useLocation } from 'react-router';
@@ -13,7 +13,6 @@ import {
 import {
     List,
     ListItem,
-    Switch
 } from "@mui/material"
 
 import {
@@ -34,7 +33,7 @@ import {categoriesData, productsData} from "../data"
 const NavbarComponent = () => {
     const location = useLocation()
 
-    const {isLoggedIn, setIsLoggedIn, savedItems} = useContext(Context)
+    const {savedItems, setIsModalOpen, isModalOpen} = useContext(Context)
 
     const categories = categoriesData.map(category => {
         return (
@@ -62,20 +61,11 @@ const NavbarComponent = () => {
         )
     })
 
-    // const toggleSwitch = 
-    //     <Switch 
-    //         color="default" 
-    //         defaultChecked 
-    //         // onChange={() => changeTheme(!theme)}
-    //         color="primary"
-    //         size="small"
-    //     />
-    console.log(savedItems)
     return (
 
         <Navbar className="navbar" variant="dark" expand="md" sticky="top">
             <Container fluid>
-                <Navbar.Brand><Link to="/" className="text-decoration-none brand">Best Drest</Link></Navbar.Brand>
+                <Navbar.Brand><Link to="/" className="text-decoration-none brand">S <strong>Thetic</strong></Link></Navbar.Brand>
                 <Nav className="d-none d-md-block w-75" activeKey={location.pathname}>
                     <Navbar.Collapse className="justify-content-evenly">
                         <Link to="/" className="text-decoration-none">
@@ -96,12 +86,12 @@ const NavbarComponent = () => {
                                 <AlternateEmail fontSize="small" />{location.pathname === "/contact" ? "  Contact" : null}
                             </Nav.Link>
                         </Link>
-                        <Link to="/signin" className="text-decoration-none">
-                            <Nav.Link href="/signin" className="nav-link">
-                                <FaSignInAlt size={15} />{location.pathname === "/signin" ? "  Sign In" : null}
-                            </Nav.Link>
-                        </Link>
-                        {/* {toggleSwitch} */}
+                        <button
+                            className="text-decoration-none nav-link signin-btn"
+                            onClick={() => setIsModalOpen(true)}
+                        >
+                                <FaSignInAlt size={15} />{isModalOpen ? "  Sign In" : null}
+                        </button>
                     </Navbar.Collapse>
                 </Nav>
                 <Navbar.Toggle >
@@ -116,14 +106,16 @@ const NavbarComponent = () => {
                     style={{maxWidth: "250px"}}
                 >
                     <Offcanvas.Header closeButton>
-                        <Offcanvas.Title className="text-light">Best Drest</Offcanvas.Title>
-                        {/* {toggleSwitch} */}
+                        <Offcanvas.Title className="text-light">S <strong>Thetic</strong></Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav activeKey={location.pathname} className="justify-content-end flex-grow-1 pe-3">
-                            <Nav.Link href="/signin" className="text-light nav-link mb-2">
-                                <FaSignInAlt size={15} />{location.pathname === "/signin" ? "  Sign In" : null}
-                            </Nav.Link>
+                            <button
+                                className="text-decoration-none nav-link signin-btn"
+                                onClick={() => setIsModalOpen(true)}
+                            >
+                                <FaSignInAlt size={15} />{isModalOpen ? "  Sign In" : null}
+                            </button>
                             <Nav.Link href="/" className="text-light nav-link">
                                 <Home fontSize="small" />{location.pathname === "/" ? "  Home" : null}
                             </Nav.Link>
