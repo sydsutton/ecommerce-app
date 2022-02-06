@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
-import {auth} from "./firebase"
+import { auth } from "./firebase"
 
-const Context = React.createContext('default')
+const Context = React.createContext()
 
 const ContextProvider = (props) => {
     const [savedItems, setSavedItems] = useState([])

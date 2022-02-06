@@ -25,7 +25,7 @@ const CategoryComponent = () => {
 
     //Pagination logic
 
-    const filteredData = productsData.filter(product => listOfCategories.includes(category) ? product.category === category : product.brand == category)
+    const filteredData = productsData.filter(product => listOfCategories.includes(category) ? product.category === category : product.brand === category)
     const numberOfPages = Math.ceil((filteredData.length) / 10)
     const firstPage = numberOfPages - (numberOfPages - 1)
     const lastPage = Math.ceil(filteredData.length)
