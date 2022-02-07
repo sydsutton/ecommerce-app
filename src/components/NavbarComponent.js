@@ -134,7 +134,12 @@ const NavbarComponent = () => {
                             </Nav.Link>
                             <h6 className="legend">Products</h6>
                             <List className="list-border">
-                                <NavDropdown menuVariant="dark" id="brandDropdown" title="Brands" className="brand-title">
+                                <NavDropdown 
+                                    menuVariant="dark" 
+                                    id="brandDropdown" 
+                                    title="Brands" 
+                                    className="brand-title"
+                                >
                                     <div className="brand-list-container">
                                         {brandsComp}
                                     </div>
