@@ -26,7 +26,7 @@ h1, h2, h3, .nav-link {
 //Navbar 
 
 .brand {
-    color: $light-color;
+    color: $dark-color;
     &:hover {
         color: $highlight-color;
     }
@@ -34,7 +34,7 @@ h1, h2, h3, .nav-link {
 
 
 .navbar {
-    background-image: linear-gradient(0deg, $darkest-color,$darkest-color);
+    background-image: linear-gradient(0deg, $secondary-color,$secondary-color);
     max-width: 100vw;
 
     .active {
@@ -42,7 +42,7 @@ h1, h2, h3, .nav-link {
     }
 
     .nav-link {
-        color: $light-color;
+        color: $dark-color;
         text-align: center;
         font-family: 'Manjari', sans-serif;
         text-transform: uppercase;
@@ -51,14 +51,22 @@ h1, h2, h3, .nav-link {
         font-weight: bold;
 
         &:hover {
-            background: $dark-color;
+            background: $highlight-color;
+            color: $dark-color;
         }
+    }
+
+    #productDropdown,
+    #brandDropdown {
+        color: $dark-color;
     }
 
     .brand-list-container {
         max-height: 400px;
         overflow-y: scroll;
     }
+
+
 
     .nav-cart {
         @include flexCenter(row);
@@ -73,7 +81,7 @@ h1, h2, h3, .nav-link {
     }
 }
 #off-canvas {
-    background-image: linear-gradient($dark-color,$dark-color);
+    background-image: linear-gradient($secondary-color,$secondary-color);
 
     .legend {
         margin: 1rem 0 -.8rem 2rem;
@@ -101,12 +109,27 @@ h1, h2, h3, .nav-link {
         font-size: .9em;
 
         &:hover {
-            background: $darkest-color;
+            background: $highlight-color;
         }
     }
 
     .signin-btn {
         @include signInBtn
+    }
+
+    #brandDropdown {
+        color: $dark-color;
+    }
+
+    .brand-title {
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .brand-list-container {
+        max-height: 300px;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 
 }
@@ -130,7 +153,8 @@ h1, h2, h3, .nav-link {
 .shipping-div {
     max-width: 900px;
     height: 75px;
-    background-color: $third-color;
+    background-color: $dark-color;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.1);
     margin: 1rem auto;
     @include flexCenter(column);
     color: $light-color;
@@ -142,11 +166,16 @@ h1, h2, h3, .nav-link {
     height:300px;
     background-size: cover;
     background-repeat: no-repeat;
-    border-bottom: 3px solid $third-color;
+    border-bottom: 3px solid $highlight-color;
     max-width: 900px;
     height: 300px;
     @include marginCenter;
     background-position-y: center;
+    &::after {
+        height: 100px;
+        background: red;
+        width: 50px;
+    }
   }
 
   //Categories

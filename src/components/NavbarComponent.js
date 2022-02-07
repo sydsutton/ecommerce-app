@@ -55,8 +55,8 @@ const NavbarComponent = () => {
     const sideBarCategories = categoriesData.map((category, index) => {
         return (
             <ListItem key={index}>
-                <Nav.Link className="w-100 text-light nav-link text-center" href={`/products/${category.routeName}`}>
-                    {location.pathname === `/products/${category.routeName}` ? <FaBlackTie size={18} /> : null} {category.title}
+                <Nav.Link className="w-100 nav-link text-center" href={`/products/${category.routeName}`}>
+                    <div className="text-dark">{location.pathname === `/products/${category.routeName}` ? <FaBlackTie size={18} /> : null} {category.title}</div>
                 </Nav.Link>
             </ListItem>
         )
@@ -64,7 +64,12 @@ const NavbarComponent = () => {
 
     return (
 
-        <Navbar className="navbar" variant="dark" expand="md" sticky="top">
+        <Navbar 
+            className="navbar shadow mb-5" 
+            variant="dark" 
+            expand="md" 
+            sticky="top"
+        > 
             <Container fluid>
                 <Navbar.Brand>
                     <Link to="/" className="text-decoration-none brand">
@@ -74,25 +79,25 @@ const NavbarComponent = () => {
                 <Nav className="d-none d-md-block w-75" activeKey={location.pathname}>
                     <Navbar.Collapse className="justify-content-evenly">
                         <Link to="/" className="text-decoration-none">
-                            <Nav.Link href="/" className="nav-link">
+                            <Nav.Link href="/" className="nav-link text-dark">
                                 <Home fontSize="small" />{location.pathname === "/" ? "  Home" : null}
                             </Nav.Link>
                         </Link>
-                        <NavDropdown title="Products">
+                        <NavDropdown menuVariant="dark" id="productDropdown" title="Products">
                             {categories}
                         </NavDropdown>
-                        <NavDropdown title="Brands">
+                        <NavDropdown menuVariant="dark" id="brandDropdown" title="Brands">
                             <div className="brand-list-container">
                                 {brandsComp}
                             </div>
                         </NavDropdown>
                         <Link to="/contact" className="text-decoration-none">
-                            <Nav.Link href="/contact" className="nav-link">
+                            <Nav.Link href="/contact" className="nav-link text-dark">
                                 <AlternateEmail fontSize="small" />{location.pathname === "/contact" ? "  Contact" : null}
                             </Nav.Link>
                         </Link>
                         <button
-                            className="text-decoration-none nav-link signin-btn"
+                            className="text-decoration-none nav-link signin-btn text-dark"
                             onClick={() => setIsModalOpen(true)}
                         >
                                 <FaSignInAlt size={15} />{isModalOpen ? "  Sign In" : null}
@@ -101,7 +106,7 @@ const NavbarComponent = () => {
                 </Nav>
                 <Navbar.Toggle>
                     <MenuOpen 
-                        className="d-block d-md-none mr-3 text-light"
+                        className="d-block d-md-none mr-3 text-dark"
                         onClick={() => setIsDrawerOpen(!isDrawerOpen)}
                     />
                 </Navbar.Toggle>
@@ -119,19 +124,24 @@ const NavbarComponent = () => {
                     <Offcanvas.Body>
                         <Nav activeKey={location.pathname} className="justify-content-end flex-grow-1 pe-3">
                             <button
-                                className="text-decoration-none nav-link signin-btn"
+                                className="text-decoration-none nav-link signin-btn text-dark"
                                 onClick={() => setIsModalOpen(true)}
                             >
                                 <FaSignInAlt size={15} />{isModalOpen ? "  Sign In" : null}
                             </button>
-                            <Nav.Link href="/" className="text-light nav-link">
+                            <Nav.Link href="/" className="text-dark nav-link">
                                 <Home fontSize="small" />{location.pathname === "/" ? "  Home" : null}
                             </Nav.Link>
                             <h6 className="legend">Products</h6>
                             <List className="list-border">
+                                <NavDropdown menuVariant="dark" id="brandDropdown" title="Brands" className="brand-title">
+                                    <div className="brand-list-container">
+                                        {brandsComp}
+                                    </div>
+                                </NavDropdown>
                                 {sideBarCategories}
                             </List>
-                            <Nav.Link href="/contact" className="text-light nav-link mt-2">
+                            <Nav.Link href="/contact" className="text-dark nav-link mt-2">
                                 <AlternateEmail fontSize="small" />{location.pathname === "/contact" ? "  Contact" : null}
                             </Nav.Link>
                         </Nav>
