@@ -40,7 +40,7 @@ const LogInComponent = () => {
             setErrorMessage("Sorry, something went wrong")
         }
     }
-
+    
     return (
         <React.Fragment>
             <Modal 
