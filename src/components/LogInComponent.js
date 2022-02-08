@@ -40,6 +40,14 @@ const LogInComponent = () => {
             setErrorMessage("Sorry, something went wrong")
         }
     }
+
+    const sliceError = (message) => {
+        if(message.includes('Firebase:')){
+            return message.replace('Firebase:', '')
+        } else {
+            return message
+        }
+    }
     
     return (
         <React.Fragment>
@@ -51,7 +59,7 @@ const LogInComponent = () => {
                     <form className="p-4 sign-in-form pt-2" onSubmit={handleSubmit}>
                         <h4 className="mb-3">Log In</h4>
                         <hr className="mb-3" />
-                        <div>{errorMessage ? errorMessage : null}</div>
+                        <div className="error-message">{errorMessage ? sliceError(errorMessage) : null}</div>
                         <FormGroup>
                             <FormControl className="mb-3">
                                 <InputLabel htmlFor="email">Email address</InputLabel>                        
@@ -60,7 +68,10 @@ const LogInComponent = () => {
                                     id="email" 
                                     type="text" 
                                     value={email} 
-                                    onChange={(e) => setEmail(e.target.value)} 
+                                    onChange={(e) => {
+                                        setErrorMessage("")
+                                        setEmail(e.target.value)
+                                    }} 
                                     required
                                 />
                             </FormControl>
@@ -70,7 +81,10 @@ const LogInComponent = () => {
                                     type="password" 
                                     id="password" 
                                     value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    onChange={(e) => {
+                                        setErrorMessage("")
+                                        setPassword(e.target.value)
+                                    }}
                                     required/>
                             </FormControl>
                         </FormGroup>
@@ -81,8 +95,8 @@ const LogInComponent = () => {
                         >
                             Log In
                         </Button>
-                        <div className="d-flex flex-row mt-3 justify-content-evenly">
-                            <p>Don't have an account?</p>
+                        <div className="d-flex flex-row mt-3 justify-content-evenly align-items-center">
+                            <div>Don't have an account?</div>
                             <Button
                                 onClick={() => {
                                     setIsChildModalOpen(true)

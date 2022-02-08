@@ -22,19 +22,41 @@ const SignUpComponent = ({isChildModalOpen, setIsChildModalOpen}) => {
     const [errorMessage, setErrorMessage] = useState("")
     const [snackbarOpen, setSnackbarOpen] = useState(false)
 
+    const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")
+    const numberRegex = new RegExp("(?=.*[0-9])")
+    const charRegex = new RegExp("(?=.*[!@#\$%\^&\*])")
+
+    const validate = () => {
+        if(strongRegex.test(password) && password === confirmPassword){ 
+            return true
+        } else {
+            return false
+        }
+    }
 
     const handleSubmit = async(e) => {
         e.preventDefault()
         setErrorMessage("")
-        try {
-            await signUp(email, password)
-            .then(() => {
-                setSnackbarOpen(true)
-                setIsChildModalOpen(false)
-            })
-            .catch((error) => setErrorMessage(error.message))
-        } catch {
-            setErrorMessage("Sorry, something went wrong")
+        if(validate()){
+            try {
+                await signUp(email, password)
+                .then(() => {
+                    setSnackbarOpen(true)
+                    setIsChildModalOpen(false)
+                })
+                .catch((error) => setErrorMessage(error.message))
+            } catch {
+                setErrorMessage("Sorry, something went wrong")
+            }
+        }
+
+    }
+
+    const sliceError = (message) => {
+        if(message.includes('Firebase:')){
+            return message.replace('Firebase:', '')
+        } else {
+            return message
         }
     }
 
@@ -49,7 +71,13 @@ const SignUpComponent = ({isChildModalOpen, setIsChildModalOpen}) => {
                         <h4 className="mb-3">Sign Up</h4>
                         <hr />
                         <FormGroup>
-                            <div>{errorMessage ? errorMessage : null}</div>
+                            <div className="error-message">{errorMessage ? sliceError(errorMessage) : null}</div>
+                            <div className="mb-3 small">
+                                <div className={password.length >= 8 ? 'text-success' : 'text-secondary'}>Password should be at least 8 characters</div>
+                                <div className={password === confirmPassword && password !== "" ? 'text-success' : 'text-secondary'}>Password and confirm password must match</div>
+                                <div className={numberRegex.test(password) ? 'text-success' : 'text-secondary'}>Password must include at least one number</div>
+                                <div className={charRegex.test(password) ? 'text-success' : 'text-secondary'}>Password must include at least one special character</div>
+                            </div>
                             <FormControl className="mb-3">
                                 <InputLabel htmlFor="email">Email address</InputLabel>                        
                                 <Input 
@@ -57,43 +85,62 @@ const SignUpComponent = ({isChildModalOpen, setIsChildModalOpen}) => {
                                     autoFocus={true}
                                     type="text" 
                                     value={email} 
-                                    onChange={(e) => setEmail(e.target.value)} 
+                                    onChange={(e) => {
+                                        setErrorMessage("")
+                                        setEmail(e.target.value)
+                                    }} 
                                     required
+                                    error={errorMessage.includes('email') ? true : false}
                                 />
                             </FormControl>
                             <FormControl className="mb-3">
-                                <InputLabel htmlFor="password" shrink={password !== "" ? true : false}>Password</InputLabel>     
+                                <InputLabel 
+                                    htmlFor="password" 
+                                    shrink={password !== "" ? true : false}
+                                >
+                                    Password
+                                </InputLabel>     
                                 <Input 
                                     type="password" 
-                                    id="text" 
+                                    id="password" 
                                     value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    required/>
+                                    onChange={(e) => {
+                                        setErrorMessage("")
+                                        setPassword(e.target.value)
+                                    }}
+                                    required
+                                />
                             </FormControl>
                             <FormControl>
-                                <InputLabel htmlFor="confirmPassword" shrink={confirmPassword !== "" ? true : false}>Confirm password</InputLabel>     
+                                <InputLabel 
+                                    htmlFor="confirmPassword" 
+                                    shrink={confirmPassword !== "" ? true : false}
+                                >
+                                    Confirm password
+                                </InputLabel>     
                                 <Input 
                                     type="password" 
                                     id="confirmPassword" 
                                     value={confirmPassword}
-                                    onChange={(e) => setConfirmPassword(e.target.value)}
-                                    required/>
+                                    onChange={(e) => {
+                                        setErrorMessage("")
+                                        setConfirmPassword(e.target.value)
+                                    }}
+                                    required
+                                />
                             </FormControl>
                         </FormGroup>
                         <Button 
                             type="submit" 
                             variant="outlined" 
                             className="mt-3"
+                            disabled={validate() ? false : true}
                         >
                             Sign Up
                         </Button>
-                        <div className="d-flex flex-row mt-3 justify-content-evenly">
-                            <p>Already have an accout?</p>
-                            <Button
-                                onClick={() => {
-                                    setIsChildModalOpen(false)
-                                }}
-                            >
+                        <div className="d-flex flex-row mt-3 justify-content-evenly align-items-center">
+                            <div>Already have an account?</div>
+                            <Button onClick={() => setIsChildModalOpen(false)}>
                                 Log In
                             </Button>
                         </div>

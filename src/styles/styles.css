@@ -360,4 +360,10 @@ h1, h2, h3, .nav-link {
   left: calc(50% - 200px);
   width: 100%;
 }
+
+.error-message {
+  color: #af1f1f;
+  font-size: .8em;
+  margin-bottom: 1.5rem;
+}
 /*# sourceMappingURL=styles.css.map */
