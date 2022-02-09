@@ -65,7 +65,7 @@ const NavbarComponent = () => {
     return (
 
         <Navbar 
-            className="navbar shadow mb-5" 
+            className="navbar shadow" 
             variant="dark" 
             expand="md" 
             sticky="top"

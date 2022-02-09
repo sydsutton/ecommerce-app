@@ -15,7 +15,7 @@ const MainComponent = () => {
                     <div className="jumbo-title p-2 shadow">
                         <h4 className="jumbo-subtitle">Ultra sleek. Ultra fitted.</h4>
                         <div className="check-it-out">
-                            <div>Check it out</div>
+                            <div>Check out our suits &nbsp;</div>
                             <AiOutlineArrowRight />
                         </div>
                     </div>
@@ -24,7 +24,9 @@ const MainComponent = () => {
 
             <div className="bg-color">
                 <h5 className="free-ship-subtitle"><AiOutlineArrowDown/>Free shipping!<AiOutlineArrowDown/></h5>
-                <FreeShip />
+                <div>
+                    <FreeShip />
+                </div>
             </div>
         </div>
     );

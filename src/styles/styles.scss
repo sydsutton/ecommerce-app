@@ -159,11 +159,11 @@ h1, h2, h3, .nav-link {
 }
 
 .shipping-div {
-    max-width: 900px;
+    max-width: 100vw;
     height: 75px;
     background-color: $darkest-color;
     box-shadow: 5px 5px 5px rgba(0,0,0,.1);
-    margin: 1rem auto;
+    margin: 0 auto;
     @include flexCenter(column);
     color: $light-color;
 }
@@ -190,10 +190,14 @@ h1, h2, h3, .nav-link {
   .jumbo-title {
     text-decoration: none;
     color: $dark-color;
-    background: $light-color;
+    background: $secondary-color;
     max-width: 900px;
     margin: 0 auto;
     @include flexCenter(column);
+
+    &:hover {
+        background: $highlight-color;
+    }
 
     .jumbo-subtitle {
         font-size: 2em;
@@ -207,13 +211,13 @@ h1, h2, h3, .nav-link {
     }
 }
 .bg-color {
-    background: $light-color;
+    background: $darkest-color;
     max-width: 100vw;
     padding: 2rem;
-    margin: 3rem 0;
+    margin: 4rem 0;
 
     .free-ship-subtitle {
-        color: $darkest-color;
+        color: $secondary-color;
         font-weight: bold;
     }
 }

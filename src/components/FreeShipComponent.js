@@ -4,7 +4,7 @@ import { productsData } from "../data"
 
 const FreeShipComponent = () => {
 
-    const freeShipItems = productsData.filter(item => item.isFreeship === true).slice(20, 50)
+    const freeShipItems = productsData.filter(item => item.isFreeship === true)
     console.log(freeShipItems.length)
     return (
         <div className="free-ship-container">

@@ -179,12 +179,12 @@ h1, h2, h3, .nav-link {
 }
 
 .shipping-div {
-  max-width: 900px;
+  max-width: 100vw;
   height: 75px;
   background-color: #1A1A1A;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-  margin: 1rem auto;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -223,7 +223,7 @@ h1, h2, h3, .nav-link {
 .jumbo-title {
   text-decoration: none;
   color: #333333;
-  background: #eeeeee;
+  background: #b5e0eb;
   max-width: 900px;
   margin: 0 auto;
   display: -webkit-box;
@@ -239,6 +239,10 @@ h1, h2, h3, .nav-link {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.jumbo-title:hover {
+  background: #47b7d3;
 }
 
 .jumbo-title .jumbo-subtitle {
@@ -265,14 +269,14 @@ h1, h2, h3, .nav-link {
 }
 
 .bg-color {
-  background: #eeeeee;
+  background: #1A1A1A;
   max-width: 100vw;
   padding: 2rem;
-  margin: 3rem 0;
+  margin: 4rem 0;
 }
 
 .bg-color .free-ship-subtitle {
-  color: #1A1A1A;
+  color: #b5e0eb;
   font-weight: bold;
 }
 
