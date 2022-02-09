@@ -71,8 +71,8 @@ const SignUpComponent = ({isChildModalOpen, setIsChildModalOpen}) => {
                         <h4 className="mb-3">Sign Up</h4>
                         <hr />
                         <FormGroup>
-                            <div className="error-message">{errorMessage ? sliceError(errorMessage) : null}</div>
-                            <div className="mb-3 small">
+                            <div className="error-message mb-0">{errorMessage ? sliceError(errorMessage) : null}</div>
+                            <div className="mb-3 small mt-0">
                                 <div className={password.length >= 8 ? 'text-success' : 'text-secondary'}>Password should be at least 8 characters</div>
                                 <div className={password === confirmPassword && password !== "" ? 'text-success' : 'text-secondary'}>Password and confirm password must match</div>
                                 <div className={numberRegex.test(password) ? 'text-success' : 'text-secondary'}>Password must include at least one number</div>

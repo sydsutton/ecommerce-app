@@ -167,23 +167,70 @@ h1, h2, h3, .nav-link {
     color: $light-color;
 }
 
-
-.main-jumbo {
-    background-image:url('../images/jumbotron.png');
-    height:300px;
+.jumbo-container {
+    height: 500px;
+    min-width: 200px;
+    max-width: 900px;
+    background-image: url("../images/jumbotron.png");
     background-size: cover;
     background-repeat: no-repeat;
-    border-bottom: 3px solid $highlight-color;
-    max-width: 900px;
-    height: 300px;
+    background-position-x: center;
     @include marginCenter;
-    background-position-y: center;
-    &::after {
-        height: 100px;
-        background: red;
-        width: 50px;
-    }
+}
+
+
+.jumbo-image {
+    object-fit: contain;
+    width: 100%;
+    max-width: 900px;
+    @include marginCenter;
   }
+
+  .jumbo-title {
+    text-decoration: none;
+    color: $dark-color;
+    background: $light-color;
+    max-width: 900px;
+    margin: 0 auto;
+    @include flexCenter(column);
+
+    .jumbo-subtitle {
+        font-size: 2em;
+        letter-spacing: .2em;
+    }
+
+    .check-it-out {
+        @include flexCenter(row);
+        text-transform: uppercase;
+        font-size: .8em;
+    }
+}
+.bg-color {
+    background: $third-color;
+    max-width: 100vw;
+    padding: 2rem;
+    margin: 3rem 0;
+
+    .free-ship-subtitle {
+        color: $darkest-color;
+        font-weight: bold;
+    }
+}
+
+.free-ship-container {
+    @include flexCenter(row);
+    max-width: 90%;
+    background: $light-color;
+    overflow-x: auto;
+    scroll-margin-block-end: 0;
+    margin: 2rem auto;
+
+    .free-ship-image {
+        height: 100%;
+        margin: 0 .5rem;
+        box-shadow: 5px 5px 5px rgba(0,0,0,.05);
+    }
+}
 
   //Categories
 
