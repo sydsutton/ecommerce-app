@@ -33,9 +33,9 @@ const CategoryComponent = () => {
 
     return (
         <div className="pb-5">
-            <div className="jumbotron">
+            {/* <div className="jumbotron">
                 <CarouselComponent />
-            </div>
+            </div> */}
 
             {/* Did this to make the category plural for the title */}
             <h2 className="category-title">{listOfCategories.includes(category) && category[category.length - 1] !== "s" ? category + "s" : category }</h2>

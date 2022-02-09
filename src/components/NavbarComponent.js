@@ -83,10 +83,10 @@ const NavbarComponent = () => {
                                 <Home fontSize="small" />{location.pathname === "/" ? "  Home" : null}
                             </Nav.Link>
                         </Link>
-                        <NavDropdown menuVariant="dark" id="productDropdown" title="Products">
+                        <NavDropdown id="productDropdown" title="Products">
                             {categories}
                         </NavDropdown>
-                        <NavDropdown menuVariant="dark" id="brandDropdown" title="Brands">
+                        <NavDropdown id="brandDropdown" title="Brands">
                             <div className="brand-list-container">
                                 {brandsComp}
                             </div>

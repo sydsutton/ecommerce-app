@@ -5,9 +5,8 @@ body {
   padding: 0;
   max-width: 100vw;
   height: 100vh;
-  background-color: #975454;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#1A1A1A), to(#333333));
-  background-image: linear-gradient(0deg, #1A1A1A, #333333);
+  background-color: #1A1A1A;
+  background-image: url("../images/Taieri.png");
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Jaldi', sans-serif;
@@ -32,8 +31,8 @@ h1, h2, h3, .nav-link {
 }
 
 .navbar {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#b5e0eb), to(#b5e0eb));
-  background-image: linear-gradient(0deg, #b5e0eb, #b5e0eb);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#eeeeee), to(#eeeeee));
+  background-image: linear-gradient(0deg, #eeeeee, #eeeeee);
   max-width: 100vw;
 }
 
@@ -42,7 +41,7 @@ h1, h2, h3, .nav-link {
 }
 
 .navbar .nav-link {
-  color: #333333;
+  color: #eeeeee;
   text-align: center;
   font-family: 'Manjari', sans-serif;
   text-transform: uppercase;
@@ -97,8 +96,8 @@ h1, h2, h3, .nav-link {
 }
 
 #off-canvas {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#b5e0eb), to(#b5e0eb));
-  background-image: linear-gradient(#b5e0eb, #b5e0eb);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#eeeeee));
+  background-image: linear-gradient(#eeeeee, #eeeeee);
 }
 
 #off-canvas .legend {
@@ -182,7 +181,7 @@ h1, h2, h3, .nav-link {
 .shipping-div {
   max-width: 900px;
   height: 75px;
-  background-color: #333333;
+  background-color: #1A1A1A;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   margin: 1rem auto;
@@ -266,7 +265,7 @@ h1, h2, h3, .nav-link {
 }
 
 .bg-color {
-  background: #572e32;
+  background: #eeeeee;
   max-width: 100vw;
   padding: 2rem;
   margin: 3rem 0;
@@ -291,18 +290,35 @@ h1, h2, h3, .nav-link {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  max-width: 90%;
-  background: #eeeeee;
+  max-width: 95%;
+  background: #b5e0eb;
   overflow-x: auto;
-  scroll-margin-block-end: 0;
   margin: 2rem auto;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
 .free-ship-container .free-ship-image {
   height: 100%;
-  margin: 0 .5rem;
+  margin: .5rem .25rem;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+}
+
+.free-ship-container .overlay-price {
+  color: #eeeeee;
+  letter-spacing: .2em;
+  position: absolute;
+  bottom: calc(20% - 38px);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(#5c1717), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), #5c1717, rgba(0, 0, 0, 0));
+  height: 38px;
+  width: 15rem;
+  font-size: 1.5em;
+  border-radius: 5px;
+  margin: .5em;
+  margin-left: 2rem;
 }
 
 .category-title {

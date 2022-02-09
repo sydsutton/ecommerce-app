@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom"
-import { AiOutlineArrowRight } from "react-icons/ai"
+import { AiOutlineArrowRight, AiOutlineArrowDown } from "react-icons/ai"
 import FreeShip from './FreeShipComponent';
 
 const MainComponent = () => {
@@ -23,7 +23,7 @@ const MainComponent = () => {
             </div>
 
             <div className="bg-color">
-                <h3 className="free-ship-subtitle">Like free shipping? Here ya go!</h3>
+                <h5 className="free-ship-subtitle"><AiOutlineArrowDown/>Free shipping!<AiOutlineArrowDown/></h5>
                 <FreeShip />
             </div>
         </div>
