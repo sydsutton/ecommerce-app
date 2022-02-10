@@ -325,7 +325,6 @@ h1, h2, h3, .nav-link {
   margin: .5rem .25rem;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
-  opacity: .85;
 }
 
 .free-ship-container .visible {

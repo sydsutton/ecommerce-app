@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react"
+import { useLocalStorage } from "./components/useLocalStorage"
 import { auth } from "./firebase"
 
 const Context = React.createContext()
 
 const ContextProvider = (props) => {
-    const [savedItems, setSavedItems] = useState([])
+    const [savedItems, setSavedItems] = useLocalStorage("savedItems", [])
     const [isLoggedIn, setIsLoggedIn] = useState(true)
     const [currentUser, setCurrentUser] = useState()
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -19,6 +20,7 @@ const ContextProvider = (props) => {
 
         return isMounted = false
     }, [])
+
 
     const saveItem = (item) => {
         setSavedItems([...savedItems, item])
@@ -44,7 +46,7 @@ const ContextProvider = (props) => {
         setIsLoggedIn(false)
         return auth.signOut()
     }
-    console.log(savedItems)
+
     return (
         <Context.Provider 
             value={{

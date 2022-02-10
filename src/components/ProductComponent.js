@@ -39,7 +39,7 @@ const ProductComponent = () => {
                     </Carousel> 
                     <h6 className="text-light mt-3 text-start text-sm-center">Color: {item.color}</h6>
                 </div>
-                <div className="col-lg-5 text-light text-center text-md-start">
+                <div className="col-lg-5 text-light text-center text-md-start bg-dark p-3">
                     <div className="d-flex flex-row justify-content-evenly mb-3">
                             <Button 
                                 variant="contained" 
@@ -62,14 +62,6 @@ const ProductComponent = () => {
                             >
                                 {savedItems.includes(item) ? "Remove from cart" : "Add to cart" }
                             </Button>
-
-                        <Button 
-                            variant="outlined" 
-                            color="primary" 
-                            size="small"
-                        >
-                            Save for later
-                        </Button>
                     </div>
                     <p className="text-warning">{item.isFreeship ? "Shipping is free on this item!" : null}</p>
                     <h5>{item.name}</h5>
