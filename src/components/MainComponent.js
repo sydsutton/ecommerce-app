@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from "react-router-dom"
-import { AiOutlineArrowRight, AiOutlineArrowDown } from "react-icons/ai"
+import { AiOutlineArrowRight } from "react-icons/ai"
 import FreeShip from './FreeShipComponent';
 
 const MainComponent = () => {
     return (
         <div>
             <div className="shipping-div">
-                <h4 className="my-auto border-bottom">Store-wide sales happening now!</h4>
+                <h4 className="my-auto border-bottom">Store-wide sales happening now</h4>
             </div>
 
             <div className="jumbo-container mt-5 shadow">
@@ -22,12 +22,17 @@ const MainComponent = () => {
                 </Link>
             </div>
 
+            <div className="spacer-div" />
+
             <div className="bg-color">
-                <h5 className="free-ship-subtitle"><AiOutlineArrowDown/>Free shipping!<AiOutlineArrowDown/></h5>
+                <h5 className="free-ship-subtitle">Free shipping on 50+ items throughout the store</h5>
                 <div>
                     <FreeShip />
                 </div>
             </div>
+
+            <div className="spacer-div" />
+            
         </div>
     );
 };

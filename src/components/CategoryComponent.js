@@ -12,11 +12,7 @@ const CategoryComponent = () => {
 
     //scrolling up to the top of the page every time the page changes
     useEffect(() => {
-        if(page > 1){
-            window.scroll(0,500)
-        } else {
-            window.scroll(0,0)
-        }
+        window.scroll(0,0)
     }, [page])
 
     //Added this so that I can reuse the Category component for the brands. 
@@ -59,11 +55,14 @@ const CategoryComponent = () => {
             : 
                 <Stack spacing={2}>
                     <Pagination 
+                        variant="outlined"
                         color="primary"
+                        shape="rounded"
                         count={numberOfPages} 
                         className="my-3 mx-auto"
                         page={page}
                         onChange={(e, value) => setPage(value)}
+                        sx={{color: "white"}}
                     />
                 </Stack>
             }

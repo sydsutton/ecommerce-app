@@ -272,12 +272,17 @@ h1, h2, h3, .nav-link {
   background: #1A1A1A;
   max-width: 100vw;
   padding: 2rem;
-  margin: 4rem 0;
+  margin: 0;
 }
 
 .bg-color .free-ship-subtitle {
   color: #b5e0eb;
   font-weight: bold;
+  letter-spacing: .1em;
+}
+
+.spacer-div {
+  height: 100px;
 }
 
 .free-ship-container {
@@ -290,13 +295,16 @@ h1, h2, h3, .nav-link {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   max-width: 95%;
-  background: #b5e0eb;
-  overflow-x: auto;
+  max-height: 500px;
+  background: #47b7d3;
+  overflow-y: auto;
   margin: 2rem auto;
   -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
           box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
@@ -305,24 +313,34 @@ h1, h2, h3, .nav-link {
 
 .free-ship-container .free-ship-image {
   height: 100%;
+  max-height: calc(500px - 6rem);
   margin: .5rem .25rem;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+  opacity: .85;
 }
 
-.free-ship-container .overlay-price {
-  color: #eeeeee;
-  letter-spacing: .2em;
+.free-ship-container .visible {
+  display: block;
   position: absolute;
-  bottom: calc(20% - 38px);
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(#5c1717), to(rgba(0, 0, 0, 0)));
-  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), #5c1717, rgba(0, 0, 0, 0));
-  height: 38px;
-  width: 15rem;
-  font-size: 1.5em;
+  z-index: 20;
+  top: 5%;
+  margin-left: 1em;
+  background: #333333;
+  color: #47b7d3;
+  font-weight: bold;
+  padding: .5em;
   border-radius: 5px;
-  margin: .5em;
-  margin-left: 2rem;
+  width: 10rem;
+  letter-spacing: .2em;
+}
+
+.free-ship-container .hidden {
+  display: none;
+}
+
+.free-ship-container .hover-image {
+  opacity: .95;
 }
 
 .category-title {

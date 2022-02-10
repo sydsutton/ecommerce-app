@@ -138,7 +138,7 @@ const NavbarComponent = () => {
                                     menuVariant="dark" 
                                     id="brandDropdown" 
                                     title="Brands" 
-                                    className="brand-title"
+                                    className="brand-title mt-2"
                                 >
                                     <div className="brand-list-container">
                                         {brandsComp}
