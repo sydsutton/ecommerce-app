@@ -36,6 +36,10 @@ h1, h2, h3, .nav-link {
   max-width: 100vw;
 }
 
+.navbar .disabled {
+  border: none;
+}
+
 .navbar .active {
   border-bottom: 3px solid #47b7d3;
 }
@@ -110,6 +114,10 @@ h1, h2, h3, .nav-link {
   width: 35%;
   border-radius: 10px;
   font-size: .8em;
+}
+
+#off-canvas .disabled {
+  border: none;
 }
 
 #off-canvas .list-border {

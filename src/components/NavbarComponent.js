@@ -27,14 +27,14 @@ import {
     AlternateEmail
 } from '@mui/icons-material';
 
-import {BsCartFill} from "react-icons/bs"
+import { BsFillCartFill } from "react-icons/bs"
 
 import {categoriesData, productsData} from "../data"
 
 const NavbarComponent = () => {
     const location = useLocation()
 
-    const {savedItems, setIsModalOpen, isModalOpen, isDrawerOpen, setIsDrawerOpen} = useContext(Context)
+    const {savedItems, isDrawerOpen, setIsDrawerOpen} = useContext(Context)
 
     const categories = categoriesData.map(category => {
         return (
@@ -96,12 +96,17 @@ const NavbarComponent = () => {
                                 <AlternateEmail fontSize="small" />{location.pathname === "/contact" ? "  Contact" : null}
                             </Nav.Link>
                         </Link>
-                        <button
-                            className="text-decoration-none nav-link signin-btn text-dark"
-                            onClick={() => setIsModalOpen(true)}
-                        >
-                                <FaSignInAlt size={15} />{isModalOpen ? "  Sign In" : null}
-                        </button>
+                        {savedItems.length === 0 ? 
+                            <button disabled className="nav-link text-dark disabled">
+                                <BsFillCartFill size={15} style={{color: "grey"}} />
+                            </button>
+                        :
+                            <Link to="/cart" className="text-decoration-none">
+                                <Nav.Link href="/cart" className="nav-link text-dark">
+                                    <BsFillCartFill size={15} />&nbsp;{savedItems.length !== 0 ? savedItems.length : null} 
+                                </Nav.Link>
+                            </Link>
+                        }
                     </Navbar.Collapse>
                 </Nav>
                 <Navbar.Toggle>
@@ -123,12 +128,15 @@ const NavbarComponent = () => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav activeKey={location.pathname} className="justify-content-end flex-grow-1 pe-3">
-                            <button
-                                className="text-decoration-none nav-link signin-btn text-dark"
-                                onClick={() => setIsModalOpen(true)}
-                            >
-                                <FaSignInAlt size={15} />{isModalOpen ? "  Sign In" : null}
-                            </button>
+                            {savedItems.length === 0 ? 
+                                <button disabled className="nav-link text-dark disabled">
+                                    <BsFillCartFill size={15} style={{color: "grey"}} />
+                                </button>
+                            :
+                                <Nav.Link href="/cart" className="text-dark nav-link">
+                                    <BsFillCartFill fontSize="small" />{location.pathname === "/cart" ? "  Cart" : null}
+                                </Nav.Link>
+                            }
                             <Nav.Link href="/" className="text-dark nav-link">
                                 <Home fontSize="small" />{location.pathname === "/" ? "  Home" : null}
                             </Nav.Link>

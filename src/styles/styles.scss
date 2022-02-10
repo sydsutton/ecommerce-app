@@ -33,10 +33,13 @@ h1, h2, h3, .nav-link {
     }
 }
 
-
 .navbar {
     background-image: linear-gradient(0deg, $light-color,$light-color);
     max-width: 100vw;
+
+    .disabled {
+        border: none;
+    }
 
     .active {
         border-bottom: 3px solid $highlight-color;
@@ -94,6 +97,10 @@ h1, h2, h3, .nav-link {
         width: 35%;
         border-radius: 10px;
         font-size: .8em;
+    }
+
+    .disabled {
+        border: none;
     }
 
     .list-border {
