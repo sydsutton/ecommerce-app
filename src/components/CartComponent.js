@@ -7,17 +7,9 @@ const CartComponent = () => {
 
     const {savedItems, setSavedItems, isModalOpen, setIsModalOpen, removeItem, isLoggedIn} = useContext(Context)
 
-    // const [cartItems, setCartItems] = useState(() => {
-    //     const saved = localStorage.getItem("savedItems");
-    //     const initialValue = JSON.parse(saved);
-    //     return initialValue || "";
-    //   });
-      
-    //   console.log(cartItems, "cart items")
-
     const totalPrice = () => {
         if(savedItems.length > 0){
-            let prices = savedItems.map(item => (item.originPrice > item.discount ? (item.originPrice - item.discount) : item.discount - item.originPrice))
+            let prices = savedItems.map(item => (item.originPrice > item.discount ? (item.originPrice - item.discount) * item.quantity : (item.discount - item.originPrice) * item.quantity))
             let totalPrice = prices.reduce((a, c) => Number(a) + Number(c))
             return totalPrice.toFixed(2)
         } else {
@@ -41,12 +33,18 @@ const CartComponent = () => {
                         const salePrice = (item.originPrice > item.discount ? (item.originPrice - item.discount) : item.discount - item.originPrice).toFixed(2)
                         return (
                             <li className="list-group-item">
-                                <img src={item.imageUrl} alt={item.name} className="cart-image" />
-                                <div className="cart-details-container">
-                                    <h6>{item.name}</h6>
-                                    <p>{item.brand}</p>
-                                    <p>${salePrice}</p>
-                                    <p>Size: {item.size}</p>
+                                <div className="row">
+                                    <img src={item.imageUrl} alt={item.name} className="cart-image col-4" />
+                                    <div className="cart-details-container col-8">
+                                        <h5>{item.name}</h5>
+                                        <hr />
+                                        <div className="line-height">
+                                            <p>{item.brand}</p>
+                                            <p>${salePrice}</p>
+                                            <p>Size: {item.size}</p>
+                                            <p>Quantity: {item.quantity}</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 <IconButton 
                                     style={{color: "rgb(177, 31, 31)"}}
@@ -75,9 +73,9 @@ const CartComponent = () => {
                             </Button>
                             <Button 
                                 size="small" 
-                                color="action" 
+                                color="secondary" 
                                 disabled={savedItems.length > 0 ? false : true}
-                                variant="contained" 
+                                variant="outlined" 
                                 onClick={() => setSavedItems([])}
                             >
                                 Empty cart

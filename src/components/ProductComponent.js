@@ -9,6 +9,7 @@ import {productsData} from "../data"
 const ProductComponent = () => {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
     const [size, setSize] = useState("")
+    const [quantity, setQuantity] = useState(1)
     const {productId} = useParams()
     const {savedItems, saveItem, removeItem} = useContext(Context)
 
@@ -17,9 +18,10 @@ const ProductComponent = () => {
     const handleSaveItem = (item) => {
         setSnackbarOpen(true)
         item.size = size
+        item.quantity = quantity
         saveItem(item)
     }
-
+    console.log(quantity)
     return (
         <div className="container pb-5">
             <div className="row mt-3">
@@ -48,15 +50,28 @@ const ProductComponent = () => {
                     <h6 className="text-light mt-3 text-start text-sm-center">Color: {item.color}</h6>
                 </div>
                 <div className="col-lg-5 text-light text-center text-md-start bg-dark p-3">
-                    <div className="d-flex flex-row justify-content-evenly mb-3">
-                        <select onChange={(e) => setSize(e.target.value)}>
-                            <option value="">Size</option>
-                            <option value="extra-small">Extra Small</option>
-                            <option value="small">Small</option>
-                            <option value="medium">Medium</option>
-                            <option value="large">Large</option>
-                            <option value="extra-large">Exta Large</option>
-                        </select>
+                    <div className="d-flex flex-row align-items-center justify-content-evenly mb-3">
+                        <div className="d-flex flex-column">
+                            <label htmlFor="size">Size</label>
+                            <select id="size" onChange={(e) => setSize(e.target.value)}>
+                                <option value="">Size</option>
+                                <option value="extra-small">Extra Small</option>
+                                <option value="small">Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
+                                <option value="extra-large">Exta Large</option>
+                            </select>
+                        </div>
+                        <div className="d-flex flex-column">
+                            <label htmlFor="quantity">Quantity</label>
+                            <select className="px-2" onChange={(e) => setQuantity(e.target.value)}>
+                                <option value={1}>1</option>
+                                <option value={2}>2</option>
+                                <option value={3}>3</option>
+                                <option value={4}>4</option>
+                                <option value={5}>5</option>
+                            </select>
+                        </div>
                         <Button 
                             variant="contained" 
                             disabled={size ? false : true}
@@ -66,6 +81,7 @@ const ProductComponent = () => {
                                     {background: "rgb(177, 31, 31)"} : 
                                     null}
                             color="primary"
+                            className="align-self-end"
                             size="small" 
                             startIcon={savedItems.includes(item) ? <BsFillCartDashFill /> : <BsFillCartPlusFill />}
                             onClick={savedItems.includes(item) ? 

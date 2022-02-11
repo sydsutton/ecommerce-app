@@ -425,21 +425,26 @@ h1, h2, h3, .nav-link {
   }
 
   .cart-image {
-      height: 8rem;
+      height: 10rem;
       float: left;
+      object-fit: cover;
   }
 
   .cart-details-container {
       text-align: start;
-      width: 70%;
       margin-left: auto;
-      line-height: 1.1;
+      line-height: .9;
+  }
+
+  .line-height {
+      line-height: .4;
   }
 
   .cart-pricing-container {
-    background: $light-color;
+      background: $light-color;
       padding: 1rem;
-      color: $dark-color;
+      color: #6d6d6d;
+      border-radius: 5px;
       
       .order-info,
       .shipping-info,
