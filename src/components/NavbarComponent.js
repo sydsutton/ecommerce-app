@@ -134,7 +134,8 @@ const NavbarComponent = () => {
                                 </button>
                             :
                                 <Nav.Link href="/cart" className="text-dark nav-link">
-                                    <BsFillCartFill fontSize="small" />{location.pathname === "/cart" ? "  Cart" : null}
+                                    <BsFillCartFill fontSize="small" />
+                                    &nbsp;{savedItems.length}
                                 </Nav.Link>
                             }
                             <Nav.Link href="/" className="text-dark nav-link">

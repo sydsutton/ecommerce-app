@@ -6,7 +6,7 @@ const Context = React.createContext()
 
 const ContextProvider = (props) => {
     const [savedItems, setSavedItems] = useLocalStorage("savedItems", [])
-    const [isLoggedIn, setIsLoggedIn] = useState(true)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [currentUser, setCurrentUser] = useState()
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -36,6 +36,7 @@ const ContextProvider = (props) => {
 
     const logIn = (email, password) => {
         return auth.signInWithEmailAndPassword(email, password)
+                .then(() => setIsLoggedIn(true))
     }
 
     const reset = (email) => {
@@ -54,6 +55,7 @@ const ContextProvider = (props) => {
                 setIsLoggedIn,
                 saveItem,
                 savedItems,
+                setSavedItems,
                 removeItem, 
                 signUp,
                 logIn,
