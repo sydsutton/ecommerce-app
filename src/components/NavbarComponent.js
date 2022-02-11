@@ -73,7 +73,7 @@ const NavbarComponent = () => {
             <Container fluid>
                 <Navbar.Brand>
                     <Link to="/" className="text-decoration-none brand">
-                        <img src={logo} height="25" alt="logo" /><strong>Thetic</strong>
+                        <img src={logo} height="25" alt="logo" /><strong>Thetik</strong>
                     </Link>
                 </Navbar.Brand>
                 <Nav className="d-none d-md-block w-75" activeKey={location.pathname}>
