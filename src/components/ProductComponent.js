@@ -8,15 +8,23 @@ import {productsData} from "../data"
 
 const ProductComponent = () => {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
+    const [size, setSize] = useState("")
     const {productId} = useParams()
-    const {savedItems, saveItem, removeItem, isLoggedIn} = useContext(Context)
+    const {savedItems, saveItem, removeItem} = useContext(Context)
 
     const item = productsData.filter(product => product.productCode === productId)[0]
+
+    const handleSaveItem = (item) => {
+        setSnackbarOpen(true)
+        item.size = size
+        saveItem(item)
+    }
+
     return (
-        <div className="container">
-            <div className="row mt-3 mb-5">
+        <div className="container pb-5">
+            <div className="row mt-3">
                 <h2 className="item-brand">{item.brand}</h2>
-                <div className="col-lg-7 mb-5">
+                <div className="col-lg-7">
                     <Carousel 
                         controls={false} 
                         indicators={true} 
@@ -41,27 +49,34 @@ const ProductComponent = () => {
                 </div>
                 <div className="col-lg-5 text-light text-center text-md-start bg-dark p-3">
                     <div className="d-flex flex-row justify-content-evenly mb-3">
-                            <Button 
-                                variant="contained" 
-                                style={
-                                    savedItems.includes(item) ? 
-                                        {background: "rgb(177, 31, 31)"} : 
-                                        !isLoggedIn ? 
-                                        {background: "#7c7c7c", color: "white"} :
-                                        null}
-                                size="small" 
-                                disabled={!isLoggedIn}
-                                startIcon={savedItems.includes(item) ? <BsFillCartDashFill /> : <BsFillCartPlusFill />}
-                                onClick={savedItems.includes(item) ? 
-                                    () => removeItem(item) : 
-                                    () => {
-                                        setSnackbarOpen(true)
-                                        saveItem(item)
-                                    }
+                        <select onChange={(e) => setSize(e.target.value)}>
+                            <option value="">Size</option>
+                            <option value="extra-small">Extra Small</option>
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                            <option value="extra-large">Exta Large</option>
+                        </select>
+                        <Button 
+                            variant="contained" 
+                            disabled={size ? false : true}
+                            style={ !size ? 
+                                    {background: "grey"} : 
+                                savedItems.includes(item) ? 
+                                    {background: "rgb(177, 31, 31)"} : 
+                                    null}
+                            color="primary"
+                            size="small" 
+                            startIcon={savedItems.includes(item) ? <BsFillCartDashFill /> : <BsFillCartPlusFill />}
+                            onClick={savedItems.includes(item) ? 
+                                () => removeItem(item) : 
+                                () => {
+                                    handleSaveItem(item)
                                 }
-                            >
-                                {savedItems.includes(item) ? "Remove from cart" : "Add to cart" }
-                            </Button>
+                            }
+                        >
+                            {savedItems.includes(item) ? "Remove from cart" : "Add to cart" }
+                        </Button>
                     </div>
                     <p className="text-warning">{item.isFreeship ? "Shipping is free on this item!" : null}</p>
                     <h5>{item.name}</h5>

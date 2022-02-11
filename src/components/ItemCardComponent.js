@@ -1,13 +1,9 @@
-import React, {useState, useContext, useEffect} from 'react';
-import {Context} from "../Context"
-import {Rating, IconButton, Snackbar, Alert} from "@mui/material"
+import React, {useState} from 'react';
+import {Rating} from "@mui/material"
 import {Link} from "react-router-dom"
-import { BsFillCartPlusFill, BsFillCartDashFill} from 'react-icons/bs';
 
 const ItemCardComponent = ({ salePrice, product, index, category }) => {
     const [selectedHoverIndex, setSelectedHoverIndex] = useState(-1)
-    const [snackbarOpen, setSnackbarOpen] = useState(false)
-    const {savedItems, saveItem, removeItem} = useContext(Context)
 
     return (
         <div className="item-container">
@@ -54,78 +50,8 @@ const ItemCardComponent = ({ salePrice, product, index, category }) => {
                     <p>${product.originPrice}</p>
                 }
             </div>
-
-            <div className="cart-icon-container">
-
-                    <IconButton
-                        style={
-                            savedItems.includes(product) ? 
-                                {color: "rgb(177, 31, 31)"} :
-                                {color: "#47b7d3"} 
-                            } 
-                        className="cart-icon" 
-                        onClick={
-                            savedItems.includes(product) ? 
-                            () => removeItem(product) : 
-                            () => {
-                                setSnackbarOpen(true)
-                                saveItem(product)
-                            }}
-                        aria-label={savedItems.includes(product) ?  `remove from shopping cart` : `add to cart`}
-                    >
-                        {savedItems.includes(product) ? 
-                            <BsFillCartDashFill/> : 
-                            <BsFillCartPlusFill/> 
-                        }
-                    </IconButton>
-
-                {savedItems.includes(product) ? 
-                        <Snackbar
-                            open={snackbarOpen}
-                            autoHideDuration={3000}
-                            onClose={() => setSnackbarOpen(false)}
-                        >
-                            <Alert severity="success">
-                                {`${product.brand} item added to cart!`}
-                            </Alert>
-                        </Snackbar>
-                    :
-                    null
-                }
-            </div>
         </div>
     );
 };
 
 export default ItemCardComponent;
-
-//   {
-//     productCode: '1924146',
-//     name: 'Parlez faded embroidered hoodie in black',
-//     category: 'hoodie',
-//     imageUrl:
-//       'https://images.asos-media.com/products/parlez-faded-embroidered-hoodie-in-black/23089615-1-black?$n_320w$&wid=317&fit=constrain',
-//     originPrice: 84.99,
-//     discount: 10,
-//     brand: 'Parlez',
-//     isFreeship: true,
-//     ratingValue: 4.5,
-//     desc: {
-//       brand:
-//         "The designers behind Parlez draw on a love of street culture to craft their collection of hoodies, sweatshirts and T-shirts. Inspired by sportswear and nautical aesthetics, the label focuses on stripped-back silhouettes, utility and understated branding. Check out our ASOS edit to discover our top picks from the brand's offering.",
-//       about: [
-//         'Sweatshirt fabric',
-//         'Soft hand feel',
-//         'Fabric: 80% Cotton, 20% Polyester.',
-//       ],
-//     },
-//     reviews: 100,
-//     orders: 312,
-//     color: 'Black',
-//     thumbnailUrls: [
-//       'https://images.asos-media.com/products/parlez-faded-embroidered-hoodie-in-black/23089615-1-black?$n_640w$&wid=513&fit=constrain',
-//       'https://images.asos-media.com/products/parlez-faded-embroidered-hoodie-in-black/23089615-2?$n_640w$&wid=513&fit=constrain',
-//       'https://images.asos-media.com/products/parlez-faded-embroidered-hoodie-in-black/23089615-3?$n_640w$&wid=513&fit=constrain',
-//       'https://images.asos-media.com/products/parlez-faded-embroidered-hoodie-in-black/23089615-4?$n_640w$&wid=513&fit=constrain',
-//     ],
-//   },

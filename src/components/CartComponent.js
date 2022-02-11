@@ -33,10 +33,9 @@ const CartComponent = () => {
     shippingPrice()
 
     return (
-        <div className="container">
-            <h1>Cart</h1>
+        <div className="container py-5">
             <div className="row">
-                <div className="col-md-8">
+                <div className="col-lg-7">
                     <ul className="list-group">
                     {savedItems.map(item => {
                         const salePrice = (item.originPrice > item.discount ? (item.originPrice - item.discount) : item.discount - item.originPrice).toFixed(2)
@@ -47,7 +46,7 @@ const CartComponent = () => {
                                     <h6>{item.name}</h6>
                                     <p>{item.brand}</p>
                                     <p>${salePrice}</p>
-                                    <p>Size: </p>
+                                    <p>Size: {item.size}</p>
                                 </div>
                                 <IconButton 
                                     style={{color: "rgb(177, 31, 31)"}}
@@ -62,9 +61,28 @@ const CartComponent = () => {
                     })}
                     </ul>
                 </div>
-                <div className="col-md-4">
+                <div className="col-lg-5">
                     <div className="cart-pricing-container">
-                        <button onClick={() => setIsModalOpen(!isModalOpen)}>Sign in to check out</button>
+                        <div className="cart-button-container">
+                            <Button 
+                                size="small" 
+                                color="primary"
+                                variant="contained"
+                                disabled={isLoggedIn}
+                                onClick={() => setIsModalOpen(!isModalOpen)}
+                            >
+                                Sign in to check out
+                            </Button>
+                            <Button 
+                                size="small" 
+                                color="action" 
+                                disabled={savedItems.length > 0 ? false : true}
+                                variant="contained" 
+                                onClick={() => setSavedItems([])}
+                            >
+                                Empty cart
+                            </Button>
+                        </div>
                         <hr />
                         <div className="order-info">
                             <p>Order total</p>
@@ -81,7 +99,6 @@ const CartComponent = () => {
                         </div>
                         <Button disabled={!isLoggedIn} variant="contained">Checkout</Button>
                     </div>
-                    <button onClick={() => setSavedItems([])}>Empty cart</button>
                 </div>
             </div>
         </div>

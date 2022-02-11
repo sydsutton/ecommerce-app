@@ -321,11 +321,6 @@ h1, h2, h3, .nav-link {
       width: 60%;
   }
 
-  .cart-icon-container {
-      width: 100%;
-      text-align: right;
-  }
-
   .price-div {
       width: 100%;
   }
@@ -424,7 +419,7 @@ h1, h2, h3, .nav-link {
 
       .cart-icon-button {
           position: absolute;
-          top: .5rem;
+          bottom: .5rem;
           right: .5rem;
       }
   }
@@ -438,11 +433,13 @@ h1, h2, h3, .nav-link {
       text-align: start;
       width: 70%;
       margin-left: auto;
+      line-height: 1.1;
   }
 
   .cart-pricing-container {
-      background: $light-color;
+    background: $light-color;
       padding: 1rem;
+      color: $dark-color;
       
       .order-info,
       .shipping-info,
@@ -450,6 +447,11 @@ h1, h2, h3, .nav-link {
           @include flexCenter(row);
           justify-content: space-around;
       }
+  }
+
+  .cart-button-container {
+      @include flexCenter(row);
+      justify-content: space-around;
   }
 
   @media (min-width: 200px) and (max-width: 450px){
