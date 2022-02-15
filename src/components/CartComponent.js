@@ -5,7 +5,7 @@ import {BsFillTrashFill} from "react-icons/bs"
 
 const CartComponent = () => {
 
-    const {savedItems, setSavedItems, isModalOpen, setIsModalOpen, removeItem, isLoggedIn} = useContext(Context)
+    const {savedItems, setSavedItems, isModalOpen, setIsModalOpen, removeItem, currentUser} = useContext(Context)
 
     const totalPrice = () => {
         if(savedItems.length > 0){
@@ -22,17 +22,16 @@ const CartComponent = () => {
         return shippingNum * 2.99
     }
 
-    shippingPrice()
-
+    console.log(currentUser ? "true" : "false")
     return (
         <div className="container py-5">
             <div className="row">
                 <div className="col-lg-7">
                     <ul className="list-group">
-                    {savedItems.map(item => {
+                    {savedItems.map((item, index) => {
                         const salePrice = (item.originPrice > item.discount ? (item.originPrice - item.discount) : item.discount - item.originPrice).toFixed(2)
                         return (
-                            <li className="list-group-item">
+                            <li className="list-group-item" key={index}>
                                 <div className="row">
                                     <img src={item.imageUrl} alt={item.name} className="cart-image col-4" />
                                     <div className="cart-details-container col-8">
@@ -66,7 +65,7 @@ const CartComponent = () => {
                                 size="small" 
                                 color="primary"
                                 variant="contained"
-                                disabled={isLoggedIn}
+                                disabled={currentUser}
                                 onClick={() => setIsModalOpen(!isModalOpen)}
                             >
                                 Sign in to check out
@@ -95,7 +94,7 @@ const CartComponent = () => {
                             <p>Total</p>
                             <p>${Number(totalPrice()) + Number(shippingPrice())}</p>
                         </div>
-                        <Button disabled={!isLoggedIn} variant="contained">Checkout</Button>
+                        <Button disabled={!currentUser} variant="contained">Checkout</Button>
                     </div>
                 </div>
             </div>

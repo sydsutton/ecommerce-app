@@ -34,7 +34,7 @@ import {categoriesData, productsData} from "../data"
 const NavbarComponent = () => {
     const location = useLocation()
 
-    const {savedItems, isDrawerOpen, setIsDrawerOpen} = useContext(Context)
+    const {savedItems, isDrawerOpen, setIsDrawerOpen, isLoggedIn} = useContext(Context)
 
     const categories = categoriesData.map(category => {
         return (

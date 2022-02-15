@@ -239,7 +239,7 @@ h1, h2, h3, .nav-link {
     flex-wrap: wrap;
     max-width: 95%;
     max-height: 500px;
-    background: $highlight-color;
+    background: transparent;
     overflow-y: auto;
     margin: 2rem auto;
     box-shadow: 3px 3px 3px rgba(0,0,0,.05);
@@ -250,6 +250,7 @@ h1, h2, h3, .nav-link {
         max-height: calc(500px - 6rem);
         margin: .5rem .25rem;
         box-shadow: 5px 5px 5px rgba(0,0,0,.05);
+        border-radius: 5px;
     }
 
     .visible {

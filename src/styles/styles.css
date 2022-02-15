@@ -311,7 +311,7 @@ h1, h2, h3, .nav-link {
       flex-wrap: wrap;
   max-width: 95%;
   max-height: 500px;
-  background: #47b7d3;
+  background: transparent;
   overflow-y: auto;
   margin: 2rem auto;
   -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
@@ -325,6 +325,7 @@ h1, h2, h3, .nav-link {
   margin: .5rem .25rem;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
 }
 
 .free-ship-container .visible {
