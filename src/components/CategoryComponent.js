@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import {useParams} from "react-router-dom"
-import CarouselComponent from "./CarouselComponent"
+import React, { useState, useEffect } from 'react'
+import { useParams } from "react-router-dom"
 import ItemCardComponent from "./ItemCardComponent"
-import {Pagination, Stack} from "@mui/material"
+import { Pagination, Stack } from "@mui/material"
 
 import {productsData} from "../data"
 
 const CategoryComponent = () => {
+
     const {category} = useParams()
     const [page, setPage] = useState(1)
 

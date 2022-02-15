@@ -72,7 +72,7 @@ const CartComponent = () => {
                             </Button>
                             <Button 
                                 size="small" 
-                                color="secondary" 
+                                color="primary" 
                                 disabled={savedItems.length > 0 ? false : true}
                                 variant="outlined" 
                                 onClick={() => setSavedItems([])}
