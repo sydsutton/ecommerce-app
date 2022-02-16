@@ -1,9 +1,10 @@
 import React, {useEffect, useState, useContext} from 'react';
 import {Context} from "../Context"
-import {IconButton, Button} from "@mui/material"
+import {IconButton, Button, Snackbar, Alert} from "@mui/material"
 import {BsFillTrashFill} from "react-icons/bs"
 
 const CartComponent = () => {
+    const [snackbarOpen, setSnackbarOpen] = useState(false)
 
     const {savedItems, setSavedItems, isModalOpen, setIsModalOpen, removeItem, currentUser} = useContext(Context)
 
@@ -21,8 +22,14 @@ const CartComponent = () => {
         let shippingNum = savedItems.filter(item => item.isFreeship === false).length
         return shippingNum * 2.99
     }
+    
+    const handleCheckout = () => {
+        setSnackbarOpen(true)
+        setTimeout(() => {
+            setSavedItems([])
+        }, 2000)
+    }
 
-    console.log(currentUser ? "true" : "false")
     return (
         <div className="container py-5">
             <div className="row">
@@ -92,12 +99,27 @@ const CartComponent = () => {
                         <hr />
                         <div className="total-info">
                             <p>Total</p>
-                            <p>${Number(totalPrice()) + Number(shippingPrice())}</p>
+                            <p>${(Number(totalPrice()) + Number(shippingPrice())).toFixed(2)}</p>
                         </div>
-                        <Button disabled={!currentUser} variant="contained">Checkout</Button>
+                        <Button 
+                            disabled={!currentUser} 
+                            variant="contained"
+                            onClick={() => handleCheckout()}
+                        >
+                            Checkout
+                        </Button>
                     </div>
                 </div>
             </div>
+            <Snackbar
+                open={snackbarOpen}
+                autoHideDuration={3000}
+                onClose={() => setSnackbarOpen(false)}
+            >
+                <Alert severity="success">
+                    {`Thanks for your purchase, ${currentUser.email}!`}
+                </Alert>
+            </Snackbar>
         </div>
     );
 };

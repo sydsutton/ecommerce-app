@@ -22,10 +22,10 @@ const CategoryComponent = () => {
     //Pagination logic
 
     const filteredData = productsData.filter(product => listOfCategories.includes(category) ? product.category === category : product.brand === category)
-    const numberOfPages = Math.ceil((filteredData.length) / 10)
+    const numberOfPages = Math.ceil((filteredData.length) / 12)
     const firstPage = numberOfPages - (numberOfPages - 1)
     const lastPage = Math.ceil(filteredData.length)
-    const products = filteredData.slice(page === firstPage ? 0 : (page - 1) * 10, page === lastPage ? filteredData.length - (numberOfPages - 1) * 10 : page * 10)
+    const products = filteredData.slice(page === firstPage ? 0 : (page - 1) * 12, page === lastPage ? filteredData.length - (numberOfPages - 1) * 12 : page * 12)
 
     return (
         <div className="pb-5">
@@ -34,7 +34,7 @@ const CategoryComponent = () => {
             </div> */}
 
             {/* Did this to make the category plural for the title */}
-            <h2 className="category-title">{listOfCategories.includes(category) && category[category.length - 1] !== "s" ? category + "s" : category }</h2>
+            <h1 className="category-title">{listOfCategories.includes(category) && category[category.length - 1] !== "s" ? category + "s" : category }</h1>
             <div className="container">
                 <div className="row justify-content-center">
                     {products.map((product, index) => {
@@ -55,14 +55,15 @@ const CategoryComponent = () => {
             : 
                 <Stack spacing={2}>
                     <Pagination 
-                        variant="outlined"
+                        // variant="contained"
                         color="primary"
                         shape="rounded"
+                        id="pagination"
                         count={numberOfPages} 
-                        className="my-3 mx-auto"
+                        className="my-3 mx-auto p-1 rounded"
                         page={page}
                         onChange={(e, value) => setPage(value)}
-                        sx={{color: "white"}}
+                        sx={{backgroundColor: "rgba(255, 255, 255, .25)", backdropFilter: "blur(5px)"}}
                     />
                 </Stack>
             }
