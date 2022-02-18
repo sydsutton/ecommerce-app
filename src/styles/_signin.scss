@@ -1,0 +1,33 @@
+.sign-in-form {
+    max-width: 400px;
+    min-width: 200px;
+    background: $light-color;
+    border-radius: 10px;
+}
+
+.signin-modal {
+  position: absolute;
+  top: calc(50% - 200px);
+  left: calc(50% - 200px);
+  width: 100%;
+}
+
+.sign-up-form {
+  max-width: 400px;
+  min-width: 200px;
+  background: $light-color;
+  border-radius: 10px;
+}
+
+.child-modal {
+  position: absolute;
+  top: calc(50% - 270px);
+  left: calc(50% - 200px);
+  width: 100%;
+}
+
+.error-message {
+  color: rgb(175, 31, 31);
+  font-size: .8em;
+  margin-bottom: 1.5rem;
+}

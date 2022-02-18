@@ -123,9 +123,7 @@ const NavbarComponent = () => {
                     show={isDrawerOpen}
                     onHide={() => setIsDrawerOpen(!isDrawerOpen)}
                 >
-                    <Offcanvas.Header closeButton>
-                        {/* <Offcanvas.Title className="text-light">S <strong>Thetic</strong></Offcanvas.Title> */}
-                    </Offcanvas.Header>
+                    <Offcanvas.Header closeButton></Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav activeKey={location.pathname} className="justify-content-end flex-grow-1 pe-3">
                             {savedItems.length === 0 ? 
@@ -134,8 +132,10 @@ const NavbarComponent = () => {
                                 </button>
                             :
                                 <Nav.Link href="/cart" className="text-dark nav-link">
-                                    <BsFillCartFill fontSize="small" />
-                                    &nbsp;{savedItems.length}
+                                    <Link to="/cart" onClick={() => setIsDrawerOpen(false)}>
+                                        <BsFillCartFill fontSize="small" />
+                                        &nbsp;{savedItems.length}
+                                    </Link>
                                 </Nav.Link>
                             }
                             <Nav.Link href="/" className="text-dark nav-link">

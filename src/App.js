@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext} from "react"
 import Navbar from "./components/NavbarComponent"
 import Main from "./components/MainComponent"
 import Category from "./components/CategoryComponent"

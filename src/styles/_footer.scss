@@ -1,0 +1,25 @@
+.footer-container {
+    height: 3.5rem;
+    width: 100%;
+  //   @include flexCenter(row);
+  display: flex;
+  flex-direction: row;
+    background: $dark-color;
+    position: absolute;
+    bottom: 0;
+    justify-content: space-around;
+}
+
+.footer-list {
+    list-style: none;
+    @include flexCenter(row);
+
+    li a {
+      text-decoration: none;
+      margin: 0 1rem;
+      color: white;
+      &:hover {
+          color: $highlight-color;
+      }
+    }
+}

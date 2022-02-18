@@ -7,25 +7,26 @@ const FooterComponent = () => {
             <ul className="footer-list my-auto">
                 <li>
                     <a href="twitter.com">
-                        <FaTwitter size={25} />
+                        <FaTwitter size={20} />
                     </a>
                 </li>
                 <li>
                     <a href="instagram.com">
-                        <FaInstagram size={25} />
+                        <FaInstagram size={20} />
                     </a>
                 </li>
                 <li>
                     <a href="facebook.com">
-                        <FaFacebook size={25} />
+                        <FaFacebook size={20} />
                     </a>
                 </li>
                 <li>
                     <a href="pintrest.com">
-                        <FaPinterest size={25} />
+                        <FaPinterest size={20} />
                     </a>
                 </li>
             </ul>
+            <div/>
         </div>
     );
 };

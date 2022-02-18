@@ -1,0 +1,58 @@
+.category-title {
+    color: $light-color;
+    margin-top: 4rem;
+    text-transform: capitalize;
+}
+
+.item-container {
+    @include flexCenter(column);
+    min-height: 500px;
+}
+
+.product-link {
+    width: 20vw;
+    min-width: 300px;
+    font-size: .7em;
+    background: $light-color;
+    text-align: left;
+    padding: 1em;
+}
+
+.product-image {
+    height: 300px;
+    width: 280px;
+    @include marginCenter;
+    object-fit: cover;
+}
+
+.product-name {
+  text-decoration: none;
+  font-size: 1.2em;
+
+  &:hover {
+      color: $highlight-color;
+  }
+}
+
+.rating-div {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    width: 60%;
+}
+
+.price-div {
+    width: 100%;
+}
+
+.cart-icon:hover {
+    color: $light-color;
+}
+
+.product-brand {
+    margin-top: .5rem;
+    letter-spacing: .4em;
+    font-weight: bold;
+    color: $dark-color;
+    text-align: center;
+}

@@ -1,0 +1,125 @@
+.carousel {
+    max-width: 600px;
+    min-width: 200px;
+    height: 400px;
+    object-fit: contain;
+    @include marginCenter;
+}
+
+.carousel-image {
+    height: 110%;
+    min-width: 100%;
+    object-fit: contain;
+}
+
+.shipping-div {
+    max-width: 100vw;
+    height: 75px;
+    background-color: $darkest-color;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.1);
+    margin: 0 auto;
+    @include flexCenter(column);
+    color: $light-color;
+}
+
+.jumbo-container {
+    height: 500px;
+    min-width: 200px;
+    max-width: 900px;
+    background-image: url("../images/jumbotron.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    @include marginCenter;
+}
+
+
+.jumbo-image {
+    object-fit: contain;
+    width: 100%;
+    max-width: 900px;
+    @include marginCenter;
+  }
+
+  .jumbo-title {
+    text-decoration: none;
+    color: $dark-color;
+    background: $secondary-color;
+    max-width: 900px;
+    margin: 0 auto;
+    @include flexCenter(column);
+
+    &:hover {
+        background: $highlight-color;
+    }
+
+    .jumbo-subtitle {
+        font-size: 2em;
+        letter-spacing: .2em;
+    }
+
+    .check-it-out {
+        @include flexCenter(row);
+        text-transform: uppercase;
+        font-size: .8em;
+    }
+}
+.bg-color {
+    background: $darkest-color;
+    max-width: 100vw;
+    padding: 2rem;
+    margin: 0;
+
+    .free-ship-subtitle {
+        color: $secondary-color;
+        font-weight: bold;
+        letter-spacing: .1em;
+    }
+}
+
+.spacer-div {
+    height: 100px;
+}
+
+.free-ship-container {
+    @include flexCenter(column);
+    flex-wrap: wrap;
+    max-width: 95%;
+    max-height: 500px;
+    background: transparent;
+    overflow-y: auto;
+    margin: 2rem auto;
+    box-shadow: 3px 3px 3px rgba(0,0,0,.05);
+    position: relative;
+
+    .free-ship-image {
+        height: 100%;
+        max-height: calc(500px - 6rem);
+        margin: .5rem .25rem;
+        box-shadow: 5px 5px 5px rgba(0,0,0,.05);
+        border-radius: 5px;
+    }
+
+    .visible {
+        display: block;
+        position: absolute;
+        z-index: 20;
+        top: 5%;
+        margin-left: 1em;
+        background: $dark-color;
+        color: $highlight-color;
+        font-weight: bold;
+        padding: .5em;
+        border-radius: 5px;
+        width: 10rem;
+        letter-spacing: .2em;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .hover-image {
+        opacity: .95;
+    }
+}

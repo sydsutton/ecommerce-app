@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {useParams} from "react-router-dom"
 import {Context} from "../Context"
 import {Carousel} from "react-bootstrap"
@@ -14,6 +14,10 @@ const ProductComponent = () => {
     const {savedItems, saveItem, removeItem} = useContext(Context)
 
     const item = productsData.filter(product => product.productCode === productId)[0]
+
+    useEffect(() => {
+        window.scroll(0,0)
+    }, [])
 
     const handleSaveItem = (item) => {
         setSnackbarOpen(true)
@@ -49,7 +53,7 @@ const ProductComponent = () => {
                     </Carousel> 
                     <h6 className="text-light mt-3 text-start text-sm-center">Color: {item.color}</h6>
                 </div>
-                <div className="col-lg-5 text-light text-center text-md-start bg-dark p-3">
+                <div className="col-lg-5 text-light text-center text-md-start p-3 product-detail-container">
                     <div className="d-flex flex-row align-items-center justify-content-evenly mb-3">
                         <div className="d-flex flex-column">
                             <label htmlFor="size">Size</label>
