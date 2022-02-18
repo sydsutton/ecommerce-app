@@ -6,6 +6,7 @@ import Product from "./components/ProductComponent"
 import Contact from "./components/ContactComponent"
 import LogIn from "./components/LogInComponent"
 import Cart from "./components/CartComponent"
+import Footer from "./components/FooterComponent"
 import { Context } from "./Context"
 
 import {BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
@@ -19,28 +20,30 @@ function App() {
   }
 
   return (
-    <Router>
-      <div className="app">
-        <Navbar />
-        <LogIn />
+    <div className="app">
+      <Router>
+          <Navbar />
+          <LogIn />
 
-        <Routes>
-          <Route exact path="/" element={<Main />} />
-          <Route path="/products/:category" element={<Category />} />
-          <Route path="/products/:brand" element={<Category />} />
-          <Route path="/products/:category/:productId" element={<Product />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route 
-            path="/cart" 
-            element={
-              <PrivateRoute>
-                <Cart />
-              </PrivateRoute>
-            } 
-          />
-        </Routes>
-      </div>
-    </Router>
+          <Routes>
+            <Route exact path="/" element={<Main />} />
+            <Route path="/products/:category" element={<Category />} />
+            <Route path="/products/:brand" element={<Category />} />
+            <Route path="/products/:category/:productId" element={<Product />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route 
+              path="/cart" 
+              element={
+                <PrivateRoute>
+                  <Cart />
+                </PrivateRoute>
+              } 
+            />
+          </Routes>
+
+          <Footer />
+      </Router>
+    </div>
   );
 }
 
