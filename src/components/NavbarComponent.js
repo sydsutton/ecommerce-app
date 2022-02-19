@@ -131,12 +131,12 @@ const NavbarComponent = () => {
                                     <BsFillCartFill size={15} style={{color: "grey"}} />
                                 </button>
                             :
+                            <Link to="/cart" className="text-dark text-decoration-none" onClick={() => setIsDrawerOpen(false)}>
                                 <Nav.Link href="/cart" className="text-dark nav-link">
-                                    <Link to="/cart" onClick={() => setIsDrawerOpen(false)}>
-                                        <BsFillCartFill fontSize="small" />
-                                        &nbsp;{savedItems.length}
-                                    </Link>
+                                    <BsFillCartFill fontSize="small" />
+                                    &nbsp;{savedItems.length}
                                 </Nav.Link>
+                            </Link>
                             }
                             <Nav.Link href="/" className="text-dark nav-link">
                                 <Home fontSize="small" />{location.pathname === "/" ? "  Home" : null}
