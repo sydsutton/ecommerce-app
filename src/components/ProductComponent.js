@@ -25,9 +25,9 @@ const ProductComponent = () => {
         item.quantity = quantity
         saveItem(item)
     }
-    console.log(quantity)
+
     return (
-        <div className="container pb-5">
+        <div className="container pb-5 mb-5">
             <div className="row mt-3">
                 <h2 className="item-brand">{item.brand}</h2>
                 <div className="col-lg-7">

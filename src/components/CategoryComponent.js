@@ -13,7 +13,7 @@ const CategoryComponent = () => {
     //scrolling up to the top of the page every time the page changes
     useEffect(() => {
         window.scroll(0,0)
-    }, [page])
+    }, [page, category])
 
     //Added this so that I can reuse the Category component for the brands. 
     //Then used conditional rendering in the filtering of the data
@@ -60,7 +60,7 @@ const CategoryComponent = () => {
                         shape="rounded"
                         id="pagination"
                         count={numberOfPages} 
-                        className="my-3 mx-auto p-1 rounded"
+                        className="my-3 mx-auto p-1 rounded mb-5"
                         page={page}
                         onChange={(e, value) => setPage(value)}
                         sx={{backgroundColor: "rgba(255, 255, 255, .25)", backdropFilter: "blur(5px)"}}

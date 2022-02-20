@@ -6,7 +6,11 @@ import {BsFillTrashFill} from "react-icons/bs"
 const CartComponent = () => {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
 
-    const {isLoggedIn, savedItems, setSavedItems, isModalOpen, setIsModalOpen, removeItem, currentUser, signOut} = useContext(Context)
+    const {savedItems, setSavedItems, isModalOpen, setIsModalOpen, removeItem, currentUser, signOut} = useContext(Context)
+
+    useEffect(() => {
+        window.scroll(0,0)
+    }, [])
 
     const totalPrice = () => {
         if(savedItems.length > 0){
@@ -29,9 +33,6 @@ const CartComponent = () => {
             setSavedItems([])
         }, 2000)
     }
-
-    console.log(currentUser)
-    console.log(isLoggedIn)
 
     return (
         <div className="container py-5">
@@ -69,21 +70,21 @@ const CartComponent = () => {
                     </ul>
                 </div>
                 <div className="col-lg-5">
-                    <div className="row welcome-container">
-                        <h5>Welcome{currentUser ? `, ${currentUser.email}` : null}</h5>
-                        <Button 
-                            variant="contained"
-                            color="error"
-                            className="log-out-button"
-                            disabled={!currentUser}
-                            size="small"
-                            sx={{maxWidth: "100px"}}
-                            onClick={() => signOut()}
-                        >
-                            Log out
-                        </Button>
-                    </div>
                     <div className="cart-pricing-container">
+                        <div className="row welcome-container">
+                            <h6 style={{width: "80%"}}>{currentUser ? <>Welcome <strong>{currentUser.email}</strong></> : null}</h6>
+                            <Button 
+                                variant="outlined"
+                                color="primary"
+                                className="log-out-button"
+                                disabled={!currentUser}
+                                size="small"
+                                sx={{maxWidth: "80px", fontSize: ".6em"}}
+                                onClick={() => signOut()}
+                            >
+                                Log out
+                            </Button>
+                        </div>
                         <div className="cart-button-container">
                             <Button 
                                 size="small" 

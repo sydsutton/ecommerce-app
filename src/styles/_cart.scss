@@ -51,11 +51,9 @@
     @include flexCenter(row);
     margin-bottom: 1rem;
     padding: 1rem;
-    color: $light-color;
+    color: $dark-color;
     border-radius: 5px;
     margin: 0 0 .5rem;
-    background-color: rgba(255, 255, 255, .15);   
-    backdrop-filter: blur(5px);
 }
 
 .cart-button-container {

@@ -1,18 +1,21 @@
 .footer-container {
-    height: 3.5rem;
+    padding: 1rem 0;
     width: 100%;
-  //   @include flexCenter(row);
-  display: flex;
-  flex-direction: row;
     background: $dark-color;
     position: absolute;
     bottom: 0;
     justify-content: space-around;
+  
+  .social-container {
+    @include flexCenter(column);
+    display: inline;
+  }
 }
 
 .footer-list {
     list-style: none;
     @include flexCenter(row);
+    padding: 0;
 
     li a {
       text-decoration: none;
