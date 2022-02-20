@@ -6,7 +6,7 @@ import {BsFillTrashFill} from "react-icons/bs"
 const CartComponent = () => {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
 
-    const {savedItems, setSavedItems, isModalOpen, setIsModalOpen, removeItem, currentUser} = useContext(Context)
+    const {isLoggedIn, savedItems, setSavedItems, isModalOpen, setIsModalOpen, removeItem, currentUser, signOut} = useContext(Context)
 
     const totalPrice = () => {
         if(savedItems.length > 0){
@@ -29,6 +29,9 @@ const CartComponent = () => {
             setSavedItems([])
         }, 2000)
     }
+
+    console.log(currentUser)
+    console.log(isLoggedIn)
 
     return (
         <div className="container py-5">
@@ -66,11 +69,26 @@ const CartComponent = () => {
                     </ul>
                 </div>
                 <div className="col-lg-5">
+                    <div className="row welcome-container">
+                        <h5>Welcome{currentUser ? `, ${currentUser.email}` : null}</h5>
+                        <Button 
+                            variant="contained"
+                            color="error"
+                            className="log-out-button"
+                            disabled={!currentUser}
+                            size="small"
+                            sx={{maxWidth: "100px"}}
+                            onClick={() => signOut()}
+                        >
+                            Log out
+                        </Button>
+                    </div>
                     <div className="cart-pricing-container">
                         <div className="cart-button-container">
                             <Button 
                                 size="small" 
                                 color="primary"
+                                fontSize="small"
                                 variant="contained"
                                 disabled={currentUser}
                                 onClick={() => setIsModalOpen(!isModalOpen)}
@@ -79,7 +97,7 @@ const CartComponent = () => {
                             </Button>
                             <Button 
                                 size="small" 
-                                color="primary" 
+                                color="error" 
                                 disabled={savedItems.length > 0 ? false : true}
                                 variant="outlined" 
                                 onClick={() => setSavedItems([])}
@@ -117,7 +135,7 @@ const CartComponent = () => {
                 onClose={() => setSnackbarOpen(false)}
             >
                 <Alert severity="success">
-                    {`Thanks for your purchase, ${currentUser.email}!`}
+                    {currentUser ? `Thanks for your purchase, ${currentUser.email}!` : null}
                 </Alert>
             </Snackbar>
         </div>
