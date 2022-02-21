@@ -43,7 +43,7 @@ const ProductComponent = () => {
                             return (
                                 <Carousel.Item key={index}>
                                     <img
-                                        className="product-carousel-image img-fluid "
+                                        className="product-carousel-image img-fluid rounded"
                                         src={image}
                                         alt="A man posing"
                                     />
@@ -53,7 +53,7 @@ const ProductComponent = () => {
                     </Carousel> 
                     <h6 className="text-light mt-3 text-start text-sm-center">Color: {item.color}</h6>
                 </div>
-                <div className="col-lg-5 text-light text-center text-md-start p-3 product-detail-container">
+                <div className="col-lg-5 text-light text-center text-md-start p-3 product-detail-container rounded">
                     <div className="d-flex flex-row align-items-center justify-content-evenly mb-3">
                         <div className="d-flex flex-column">
                             <label htmlFor="size">Size</label>
